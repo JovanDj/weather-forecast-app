@@ -10,7 +10,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es5",
+    "target": "es3",
+    "strict": true,
+    "alwaysStrict": true,
+    "suppressImplicitAnyIndexErrors":true,
     "typeRoots": [
       "node_modules/@types"
     ],
