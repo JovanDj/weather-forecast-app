@@ -19,11 +19,11 @@ export class MainComponent implements OnInit {
   private changeBackground(): void {
     if (this.currentWeather.current.is_day === 1) {
       this.renderer.removeStyle(document.body, 'background-image');
-      this.renderer.setStyle(document.body, 'background-image', 'url("../../assets/day.png")');
+      this.renderer.setStyle(document.body, 'background-image', 'url("assets/day.png")');
       this.renderer.setStyle(document.body, 'color', '#000');
     } else {
       this.renderer.removeStyle(document.body, 'background-image');
-      this.renderer.setStyle(document.body, 'background-image', 'url("../../assets/night.png")');
+      this.renderer.setStyle(document.body, 'background-image', 'url("assets/night.png")');
       this.renderer.setStyle(document.body, 'color', '#000');
     }
   }

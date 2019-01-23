@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "hmr": "ng serve --configuration hmr"
+    "hmr": "ng serve --configuration hmr",
+    "deploy": "ng build --prod --base-href https://jovandj.github.io/weather-forecast-app/ && npx angular-cli-ghpages --dir dist/weather-app"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "@types/jasmine": "^2.8.8",
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^8.10.39",
+    "angular-cli-ghpages": "^0.5.3",
     "codelyzer": "^4.5.0",
     "jasmine-core": "^2.99.1",
     "jasmine-spec-reporter": "^4.2.1",
