@@ -1,5 +1,56 @@
 <div class="container">
   <h1>Weather</h1>
 
-  <app-weather-form></app-weather-form>
+  <app-weather-form (weatherReceived)="receiveWeather($event)"></app-weather-form>
+
+  <section *ngIf="currentWeather" class="d-flex justify-content-center align-items-center my-5">
+    <table id="location" class="table m-1">
+      <tbody>
+        <th>Location</th>
+        <tr>
+          <td>{{ currentWeather.location.name }}</td>
+        </tr>
+        <tr>
+          <td>{{ currentWeather.location.region }}</td>
+        </tr>
+        <tr>
+          <td>{{ currentWeather.location.country }}</td>
+        </tr>
+
+        <tr>
+          <td>{{ currentWeather.location.lat }} Latitude, {{ currentWeather.location.lon }} Longitude</td>
+        </tr>
+
+        <tr>
+          <td>{{ currentWeather.location.localtime | date: 'medium' }}</td>
+        </tr>
+      </tbody>
+    </table>
+    {{ currentWeather.current | json }}
+    <table id="current" class="table m-1 align-middle">
+      <th>Current weather</th>
+      <tbody>
+        <tr>
+          <td>
+            {{ currentWeather.current.condition.text }}
+            <img
+              width="64"
+              height="64"
+              class="img-fluid p-0"
+              [src]="currentWeather.current.condition.icon"
+              alt="currentWeather.current.condition.code"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>Last updated: {{ currentWeather.current.last_updated | date: 'medium' }}</td>
+        </tr>
+
+        <tr>
+          <td>Cloud coverage: {{ currentWeather.current.cloud }}%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </div>

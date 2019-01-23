@@ -1,7 +1,7 @@
 import { WeatherForm } from './../../models/weather-form.model';
 import { CurrentWeather } from './../../models/current-weather.model';
 import { WeatherService } from './../../services/weather.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./weather-form.component.scss']
 })
 export class WeatherFormComponent implements OnInit {
+  @Output() weatherReceived = new EventEmitter<CurrentWeather>();
   weatherForm: FormGroup;
 
   constructor(private weatherService: WeatherService, private fb: FormBuilder) {
@@ -20,7 +21,7 @@ export class WeatherFormComponent implements OnInit {
 
   getCurrentWeather(weatherForm: WeatherForm): void {
     this.weatherService.getCurrentWeather(weatherForm.q).subscribe((currentWeather: CurrentWeather) => {
-      console.log(currentWeather);
+      this.weatherReceived.emit(currentWeather);
     });
   }
 

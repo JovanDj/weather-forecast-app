@@ -16,8 +16,6 @@ export class WeatherService {
     let params: HttpParams = new HttpParams();
 
     params = params.set('q', q);
-    alert(params);
-
     return this.http.get<CurrentWeather>(this.url, { params });
   }
 }

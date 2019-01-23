@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrentWeather } from '../models/current-weather.model';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+  currentWeather!: CurrentWeather;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  receiveWeather(currentWeather: CurrentWeather): void {
+    this.currentWeather = currentWeather;
   }
 
+  ngOnInit(): void {}
 }

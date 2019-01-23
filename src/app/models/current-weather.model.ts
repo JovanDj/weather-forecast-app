@@ -2,27 +2,28 @@ export interface CurrentWeather {
   location: Location;
   current: Current;
 }
+
 export interface Current {
-  lastUpdatedEpoch: number;
-  lastUpdated: string;
-  tempC: number;
-  tempF: number;
-  isDay: number;
+  last_updated_epoch: number;
+  last_updated: string;
+  temp_c: number;
+  temp_f: number;
+  is_day: number;
   condition: Condition;
-  windMph: number;
-  windKph: number;
-  windDegree: number;
-  windDir: string;
-  pressureMB: number;
-  pressureIn: number;
-  precipMm: number;
-  precipIn: number;
+  wind_mph: number;
+  wind_kph: number;
+  wind_degree: number;
+  wind_dir: string;
+  pressure_mb: number;
+  pressure_in: number;
+  precip_mm: number;
+  precip_in: number;
   humidity: number;
   cloud: number;
-  feelslikeC: number;
-  feelslikeF: number;
-  visKM: number;
-  visMiles: number;
+  feelslike_c: number;
+  feelslike_f: number;
+  vis_km: number;
+  vis_miles: number;
   uv: number;
 }
 
@@ -38,7 +39,7 @@ export interface Location {
   country: string;
   lat: number;
   lon: number;
-  tzID: string;
-  localtimeEpoch: number;
+  tz_id: string;
+  localtime_epoch: number;
   localtime: string;
 }
