@@ -1,6 +1,7 @@
 {
   "rulesDirectory": ["codelyzer"],
   "rules": {
+    "typedef": [true, "call-signature", "parameter", "arrow-call-signature", "arrow-parameter", "property-declaration"],
     "no-any": true,
     "adjacent-overload-signatures": true,
     "no-internal-module": true,

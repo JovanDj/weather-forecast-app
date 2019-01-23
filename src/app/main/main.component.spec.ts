@@ -1,3 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { WeatherFormComponent } from './weather-form/weather-form.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainComponent } from './main.component';
@@ -8,7 +11,8 @@ describe('MainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MainComponent]
+      imports: [ReactiveFormsModule, HttpClientTestingModule],
+      declarations: [MainComponent, WeatherFormComponent]
     }).compileComponents();
   }));
 

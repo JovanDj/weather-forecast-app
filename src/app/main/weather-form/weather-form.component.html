@@ -1,0 +1,7 @@
+<form [formGroup]="weatherForm" (ngSubmit)="getCurrentWeather(weatherForm.value)" novalidate>
+  <div class="form-group">
+    <label for="city_name">City name</label>
+    <input formControlName="q" type="text" class="form-control" id="city_name" placeholder="Enter city name" />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

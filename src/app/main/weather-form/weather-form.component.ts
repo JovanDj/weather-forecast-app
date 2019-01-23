@@ -1,0 +1,28 @@
+import { WeatherForm } from './../../models/weather-form.model';
+import { CurrentWeather } from './../../models/current-weather.model';
+import { WeatherService } from './../../services/weather.service';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-weather-form',
+  templateUrl: './weather-form.component.html',
+  styleUrls: ['./weather-form.component.scss']
+})
+export class WeatherFormComponent implements OnInit {
+  weatherForm: FormGroup;
+
+  constructor(private weatherService: WeatherService, private fb: FormBuilder) {
+    this.weatherForm = this.fb.group({
+      q: ['']
+    });
+  }
+
+  getCurrentWeather(weatherForm: WeatherForm): void {
+    this.weatherService.getCurrentWeather(weatherForm.q).subscribe((currentWeather: CurrentWeather) => {
+      console.log(currentWeather);
+    });
+  }
+
+  ngOnInit(): void {}
+}
