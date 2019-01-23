@@ -1,3 +1,4 @@
+import { CityOption } from './../models/city-option.model';
 import { CurrentWeather } from './../models/current-weather.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,7 +9,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WeatherService {
-  private url = `https://api.apixu.com/v1/current.json?key=${environment.apiKey}`;
+  private currentUrl = `https://api.apixu.com/v1/current.json?key=${environment.apiKey}`;
+  private searchUrl = `https://api.apixu.com/v1/search.json?key=${environment.apiKey}`;
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +18,14 @@ export class WeatherService {
     let params: HttpParams = new HttpParams();
 
     params = params.set('q', q);
-    return this.http.get<CurrentWeather>(this.url, { params });
+    return this.http.get<CurrentWeather>(this.currentUrl, { params });
+  }
+
+  getCityOptions(q: string): Observable<CityOption[]> {
+    let params: HttpParams = new HttpParams();
+
+    params = params.set('q', q);
+
+    return this.http.get<CityOption[]>(this.searchUrl, { params });
   }
 }

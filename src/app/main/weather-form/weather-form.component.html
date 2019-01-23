@@ -1,7 +1,22 @@
-<form [formGroup]="weatherForm" (ngSubmit)="getCurrentWeather(weatherForm.value)" novalidate>
+<form [formGroup]="weatherForm" (ngSubmit)="getCurrentWeather(weatherForm.value)" novalidate autocomplete="off">
   <div class="form-group">
     <label for="city_name">City name</label>
-    <input formControlName="q" type="text" class="form-control" id="city_name" placeholder="Enter city name" />
+    <input
+      (keydown)="getCityOptions(weatherForm.value)"
+      formControlName="q"
+      type="text"
+      class="form-control"
+      id="city_name"
+      placeholder="Enter city name"
+    />
+
+    <div class="form-group">
+      <label for="cities">Example multiple select</label>
+      <select class="form-control" id="cities" (change)="selectCity($event.target.value)">
+        <option *ngFor="let city of cityOptions" [value]="city.name">{{ city.name }} </option>
+      </select>
+    </div>
   </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
