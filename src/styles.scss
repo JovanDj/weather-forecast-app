@@ -4,4 +4,8 @@
 
 body {
   background-image: url('assets/clouds.jpg');
+  background-repeat: none;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }

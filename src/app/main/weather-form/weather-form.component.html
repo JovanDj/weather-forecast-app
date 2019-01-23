@@ -2,7 +2,7 @@
   <div class="form-group">
     <label for="city_name">City name</label>
     <input
-      (keydown)="getCityOptions(weatherForm.value)"
+      (keyup)="getCityOptions(weatherForm.value)"
       formControlName="q"
       type="text"
       class="form-control"
@@ -11,7 +11,7 @@
     />
 
     <div class="form-group" *ngIf="cityOptions">
-      <select class="form-control bg-top-none" id="cities" (change)="selectCity($event.target.value)">
+      <select class="form-control bg-top-none" id="cities" (click)="selectCity($event.target.value)">
         <option *ngFor="let city of cityOptions" [value]="city.name">{{ city.name }} </option>
       </select>
     </div>
