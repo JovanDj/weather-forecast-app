@@ -30,7 +30,7 @@
       "name": "api-performance",
       "urls": ["/current.json"],
       "cacheConfig": {
-        "maxAge": "15min",
+        "maxAge": "15m",
         "strategy": "performance"
       }
     }
