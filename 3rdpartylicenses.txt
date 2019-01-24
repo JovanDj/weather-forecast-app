@@ -483,6 +483,9 @@ MIT
 @angular/forms
 MIT
 
+@angular/service-worker
+MIT
+
 zone.js
 MIT
 The MIT License

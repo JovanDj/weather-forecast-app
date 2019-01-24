@@ -1,0 +1,108 @@
+{
+  "configVersion": 1,
+  "index": "https://jovandj.github.io/weather-forecast-app/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://jovandj.github.io/weather-forecast-app/favicon.ico",
+        "https://jovandj.github.io/weather-forecast-app/index.html",
+        "https://jovandj.github.io/weather-forecast-app/main.27436e4ec9213a6f4cb6.js",
+        "https://jovandj.github.io/weather-forecast-app/polyfills.15c4e731ec803444eab5.js",
+        "https://jovandj.github.io/weather-forecast-app/runtime.b57bf819d5bdce77f1c7.js",
+        "https://jovandj.github.io/weather-forecast-app/styles.be9938399b066b56cd1f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://jovandj.github.io/weather-forecast-app/assets/clouds.jpg",
+        "https://jovandj.github.io/weather-forecast-app/assets/day.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-128x128.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-144x144.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-152x152.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-192x192.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-384x384.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-512x512.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-72x72.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-96x96.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/night.png",
+        "https://jovandj.github.io/weather-forecast-app/clouds.d185caba706c2747921a.jpg",
+        "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.674f50d287a8c48dc19b.eot",
+        "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.912ec66d7572ff821749.svg",
+        "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.af7ae505a9eed503f8b8.woff2",
+        "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.b06871f281fee6b241d6.ttf",
+        "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.fee66e712a8a08eef580.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-performance",
+      "patterns": [
+        "\\/search\\.json"
+      ],
+      "strategy": "performance",
+      "maxAge": 86400000,
+      "version": 1
+    },
+    {
+      "name": "api-performance",
+      "patterns": [
+        "\\/current\\.json"
+      ],
+      "strategy": "performance",
+      "maxAge": 900000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "https://jovandj.github.io/weather-forecast-app/assets/clouds.jpg": "c36e777770cb4fddcc810e16f4e877ee0235dcd0",
+    "https://jovandj.github.io/weather-forecast-app/assets/day.png": "fa4a4f364b5afd2815be60d134dfd28812370a49",
+    "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://jovandj.github.io/weather-forecast-app/assets/night.png": "0a5747c0ef7aa7a4f7fff2b0fc6ef469716c6739",
+    "https://jovandj.github.io/weather-forecast-app/clouds.d185caba706c2747921a.jpg": "c36e777770cb4fddcc810e16f4e877ee0235dcd0",
+    "https://jovandj.github.io/weather-forecast-app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.674f50d287a8c48dc19b.eot": "d980c2ce873dc43af460d4d572d441304499f400",
+    "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.912ec66d7572ff821749.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
+    "https://jovandj.github.io/weather-forecast-app/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "https://jovandj.github.io/weather-forecast-app/index.html": "a085e4c13e6fdd7eb8b25beca0b39340b4346631",
+    "https://jovandj.github.io/weather-forecast-app/main.27436e4ec9213a6f4cb6.js": "6b94cfa23413f81b671ff9b53303ef1e8930e3cd",
+    "https://jovandj.github.io/weather-forecast-app/polyfills.15c4e731ec803444eab5.js": "4ab98e11e44c4bc97507dfc711f8420a47d6f18e",
+    "https://jovandj.github.io/weather-forecast-app/runtime.b57bf819d5bdce77f1c7.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "https://jovandj.github.io/weather-forecast-app/styles.be9938399b066b56cd1f.css": "eaf3a92aac6f70c480a925e544b2b9fbdcf77a72"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
