@@ -16,6 +16,7 @@ export class WeatherFormComponent implements OnInit {
   weatherForm: FormGroup;
   cityOptions!: CityOption[];
   watchID = 0;
+  errorMessage = '';
 
   constructor(private weatherService: WeatherService, private fb: FormBuilder) {
     this.weatherForm = this.fb.group({
@@ -45,12 +46,20 @@ export class WeatherFormComponent implements OnInit {
 
   getCoords(): void {
     if (navigator.geolocation) {
-      this.watchID = navigator.geolocation.watchPosition((position: Position) => {
-        const q = `${position.coords.latitude},${position.coords.longitude}`;
-        this.weatherService.getCurrentWeather(q).subscribe((currentWeather: CurrentWeather) => {
-          this.weatherReceived.emit(currentWeather);
-        });
-      });
+      this.watchID = navigator.geolocation.watchPosition(
+        // Success
+        (position: Position) => {
+          const q = `${position.coords.latitude},${position.coords.longitude}`;
+          this.weatherService.getCurrentWeather(q).subscribe((currentWeather: CurrentWeather) => {
+            this.weatherReceived.emit(currentWeather);
+          });
+        },
+
+        // Error
+        (err: PositionError) => {
+          this.errorMessage = err.message;
+        }
+      );
     } else {
       alert('Geolocation is not supported by this browser.');
     }
