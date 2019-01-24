@@ -44,7 +44,7 @@
   ],
   "dataGroups": [
     {
-      "name": "api-performance",
+      "name": "autocomplete",
       "patterns": [
         "\\/search\\.json"
       ],
@@ -53,7 +53,7 @@
       "version": 1
     },
     {
-      "name": "api-performance",
+      "name": "current",
       "patterns": [
         "\\/current\\.json"
       ],
