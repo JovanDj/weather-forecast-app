@@ -19,7 +19,7 @@
   ],
   "dataGroups": [
     {
-      "name": "api-performance",
+      "name": "autocomplete",
       "urls": ["/search.json"],
       "cacheConfig": {
         "maxAge": "1d",
@@ -27,7 +27,7 @@
       }
     },
     {
-      "name": "api-performance",
+      "name": "current",
       "urls": ["/current.json"],
       "cacheConfig": {
         "maxAge": "15m",
