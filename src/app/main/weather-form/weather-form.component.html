@@ -1,6 +1,5 @@
 <form [formGroup]="weatherForm" (ngSubmit)="getCurrentWeather(weatherForm.value)" novalidate autocomplete="off">
   <div class="form-group">
-    <label for="city_name">City name</label>
     <input
       (keyup)="getCityOptions(weatherForm.value)"
       formControlName="q"
@@ -18,7 +17,7 @@
   </div>
 
   <div class="btn-group mb-3">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="weatherForm.invalid" type="submit" class="btn btn-primary">Submit</button>
     <button *ngIf="!watchID" type="button" class="btn btn-primary" (click)="getCoords()">Detect location</button>
     <button *ngIf="watchID" type="button" class="btn btn-primary" (click)="clearWatch()">Stop Tracking</button>
   </div>

@@ -20,7 +20,7 @@ export class WeatherFormComponent implements OnInit {
 
   constructor(private weatherService: WeatherService, private fb: FormBuilder) {
     this.weatherForm = this.fb.group({
-      q: ['', Validators.maxLength(20)]
+      q: ['', Validators.compose([Validators.maxLength(60), Validators.required, Validators.minLength(3)])]
     });
   }
 
