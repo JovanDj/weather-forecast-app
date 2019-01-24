@@ -40,6 +40,19 @@ export class WeatherFormComponent implements OnInit {
     }
   }
 
+  getCoords(): void {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition((position: Position) => {
+        const q = `${position.coords.latitude},${position.coords.longitude}`;
+        this.weatherService.getCurrentWeather(q).subscribe((currentWeather: CurrentWeather) => {
+          this.weatherReceived.emit(currentWeather);
+        });
+      });
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
+  }
+
   selectCity(city: string): void {
     this.weatherForm.setValue({ q: city });
   }
