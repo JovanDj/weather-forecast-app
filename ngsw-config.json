@@ -1,5 +1,17 @@
 {
   "index": "/index.html",
+  "routing": {
+    "index": "/index.html",
+    "routes": {
+      "/": {
+        "prefix": false
+      }
+    }
+  },
+  "push": {
+    "showNotifications": true,
+    "backgroundOnly": true
+  },
   "assetGroups": [
     {
       "name": "app",
