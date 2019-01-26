@@ -4,7 +4,6 @@ import { CurrentWeather } from './../../models/current-weather.model';
 import { WeatherService } from './../../services/weather.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
@@ -35,10 +34,6 @@ export class WeatherFormComponent implements OnInit {
     this.clearWatch();
 
     if (weatherForm.q.length > 3) {
-      this.weatherForm.valueChanges.pipe(
-        debounceTime(2000),
-        distinctUntilChanged()
-      );
       this.cityOptions = this.weatherService.getCityOptions(weatherForm.q);
     }
   }
@@ -57,10 +52,11 @@ export class WeatherFormComponent implements OnInit {
         // Error
         (err: PositionError) => {
           this.errorMessage = err.message;
-        }
+        },
+        { enableHighAccuracy: true }
       );
     } else {
-      alert('Geolocation is not supported by this browser.');
+      this.errorMessage = 'Geolocation is not supported by this browser.';
     }
   }
 
