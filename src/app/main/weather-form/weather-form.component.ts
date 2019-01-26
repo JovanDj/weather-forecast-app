@@ -5,6 +5,7 @@ import { WeatherService } from './../../services/weather.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-weather-form',
@@ -14,7 +15,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class WeatherFormComponent implements OnInit {
   @Output() weatherReceived = new EventEmitter<CurrentWeather>();
   weatherForm: FormGroup;
-  cityOptions!: CityOption[];
+  cityOptions!: Observable<CityOption[]>;
   watchID = 0;
   errorMessage = '';
 
@@ -38,9 +39,7 @@ export class WeatherFormComponent implements OnInit {
         debounceTime(2000),
         distinctUntilChanged()
       );
-      this.weatherService.getCityOptions(weatherForm.q).subscribe((cityOptions: CityOption[]) => {
-        this.cityOptions = cityOptions;
-      });
+      this.cityOptions = this.weatherService.getCityOptions(weatherForm.q);
     }
   }
 

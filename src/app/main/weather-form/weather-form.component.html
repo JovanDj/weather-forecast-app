@@ -9,9 +9,9 @@
       placeholder="Enter city name"
     />
 
-    <div class="form-group" *ngIf="cityOptions">
+    <div class="form-group" *ngIf="(cityOptions | async) as cities">
       <select class="form-control bg-top-none" id="cities" (click)="selectCity($event.target.value)">
-        <option *ngFor="let city of cityOptions" [value]="city.name">{{ city.name }} </option>
+        <option *ngFor="let city of (cities | async)" [value]="city.name">{{ city.name }} </option>
       </select>
     </div>
   </div>
