@@ -1,7 +1,7 @@
 import { CityOption } from './../../models/city-option.model';
 import { WeatherForm } from './../../models/weather-form.model';
 import { WeatherService } from './../../services/weather.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -12,12 +12,14 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class WeatherFormComponent implements OnInit {
   weatherForm: FormGroup;
-  cityOptions!: Observable<CityOption[]>;
+  @Output() readonly weatherChange = new EventEmitter();
+  cityOptions$: Observable<CityOption[]>;
   watchID = 0;
   errorMessage = '';
   loading = false;
 
   constructor(private weatherService: WeatherService, private fb: FormBuilder) {
+    this.cityOptions$ = this.weatherService.cityOptions$;
     this.weatherForm = this.fb.group({
       q: [
         '',
@@ -33,6 +35,7 @@ export class WeatherFormComponent implements OnInit {
   getCurrentWeather(weatherForm: WeatherForm): void {
     this.loading = true;
     this.weatherService.getCurrentWeather(weatherForm.q);
+    this.weatherChange.emit();
     this.loading = false;
   }
 
@@ -40,7 +43,7 @@ export class WeatherFormComponent implements OnInit {
     this.clearWatch();
 
     if (weatherForm.q.length > 3) {
-      this.cityOptions = this.weatherService.getCityOptions(weatherForm.q);
+      this.weatherService.getCityOptions(weatherForm.q);
     }
   }
 
@@ -71,6 +74,7 @@ export class WeatherFormComponent implements OnInit {
 
   selectCity(city: string): void {
     this.weatherForm.setValue({ q: city });
+    this.weatherService.getCurrentWeather(city);
   }
 
   ngOnInit(): void {}

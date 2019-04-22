@@ -3,7 +3,7 @@ import { CurrentWeather } from './../models/current-weather.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,10 @@ export class WeatherService {
   }`;
 
   private readonly weatherSubject = new Subject<CurrentWeather>();
-
   weather$ = this.weatherSubject.asObservable();
+
+  private readonly cityOptionsSubject = new Subject<CityOption[]>();
+  cityOptions$ = this.cityOptionsSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -33,11 +35,15 @@ export class WeatherService {
       });
   }
 
-  getCityOptions(q: string): Observable<CityOption[]> {
+  getCityOptions(q: string): void {
     let params: HttpParams = new HttpParams();
 
     params = params.set('q', q);
 
-    return this.http.get<CityOption[]>(this.searchUrl, { params });
+    this.http
+      .get<CityOption[]>(this.searchUrl, { params })
+      .subscribe((cityOptions: CityOption[]) => {
+        this.cityOptionsSubject.next(cityOptions);
+      });
   }
 }

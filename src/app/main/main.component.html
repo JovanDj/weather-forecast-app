@@ -11,8 +11,12 @@
         <img mat-card-avatar [src]="currentWeather.current.condition.icon" />
         <mat-card-title-group>
           <mat-card-title
-            >{{ currentWeather.location.name }},
-            {{ currentWeather.location.region }}</mat-card-title
+            ><a
+              href="https://en.wikipedia.org/wiki/{{
+                currentWeather.location.name
+              }}"
+              >{{ currentWeather.location.name }}</a
+            >, {{ currentWeather.location.region }}</mat-card-title
           >
           <mat-card-subtitle>{{
             currentWeather.location.country
