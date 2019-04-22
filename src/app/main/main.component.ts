@@ -1,13 +1,13 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Renderer2, ChangeDetectionStrategy } from '@angular/core';
 import { CurrentWeather } from '../models/current-weather.model';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent {
   currentWeather$: Observable<CurrentWeather>;
@@ -17,14 +17,10 @@ export class MainComponent {
     private renderer: Renderer2
   ) {
     this.currentWeather$ = this.weatherService.weather$;
-  }
 
-  onWeatherChange(): void {
-    this.currentWeather$.pipe(
-      tap((currentWeather: CurrentWeather) => {
-        this.changeBackground(currentWeather);
-      })
-    );
+    this.currentWeather$.subscribe((currentWeather: CurrentWeather) => {
+      this.changeBackground(currentWeather);
+    });
   }
 
   private changeBackground(currentWeather: CurrentWeather): void {

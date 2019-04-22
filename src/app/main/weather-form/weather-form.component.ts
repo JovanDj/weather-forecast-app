@@ -1,14 +1,21 @@
 import { CityOption } from './../../models/city-option.model';
 import { WeatherForm } from './../../models/weather-form.model';
 import { WeatherService } from './../../services/weather.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-weather-form',
   templateUrl: './weather-form.component.html',
-  styleUrls: ['./weather-form.component.scss']
+  styleUrls: ['./weather-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WeatherFormComponent implements OnInit {
   weatherForm: FormGroup;
