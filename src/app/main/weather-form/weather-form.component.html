@@ -1,26 +1,79 @@
-<form [formGroup]="weatherForm" (ngSubmit)="getCurrentWeather(weatherForm.value)" novalidate autocomplete="off">
+<form
+  [formGroup]="weatherForm"
+  (ngSubmit)="getCurrentWeather(weatherForm.value)"
+  novalidate
+  autocomplete="off"
+>
   <div class="form-group">
-    <input
-      (keyup)="getCityOptions(weatherForm.value)"
-      formControlName="q"
-      type="text"
-      class="form-control"
-      id="city_name"
-      placeholder="Enter city name"
-    />
+    <mat-form-field>
+      <input
+        matInput
+        (keyup)="getCityOptions(weatherForm.value)"
+        formControlName="q"
+        type="text"
+        class="form-control"
+        id="city_name"
+        placeholder="Enter city name"
+        [matAutocomplete]="auto"
+      />
 
-    <div class="form-group" *ngIf="cityOptions">
-      <select class="form-control bg-top-none" id="cities" (click)="selectCity($event.target.value)">
-        <option *ngFor="let city of (cityOptions | async)" [value]="city.name">{{ city.name }} </option>
+      <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+        <mat-option
+          id="cities"
+          (click)="selectCity($event.target.value)"
+          *ngFor="let city of (cityOptions | async)"
+          [value]="city.name"
+        >
+          {{ city.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <!-- <div class="form-group" *ngIf="cityOptions">
+      <select class="form-control bg-top-none">
+        <option *ngFor="let city of (cityOptions | async)" [value]="city.name"
+          >{{ city.name }}
+        </option>
       </select>
-    </div>
+    </div> -->
   </div>
 
   <div class="btn-group mb-3">
-    <button [disabled]="weatherForm.invalid" type="submit" class="btn btn-primary">Submit</button>
-    <button *ngIf="!watchID" type="button" class="btn btn-primary" (click)="getCoords()">Detect location</button>
-    <button *ngIf="watchID" type="button" class="btn btn-primary" (click)="clearWatch()">Stop Tracking</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="weatherForm.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
+    <button
+      *ngIf="!watchID"
+      mat-raised-button
+      color="primary"
+      type="button"
+      class="btn btn-primary"
+      (click)="getCoords()"
+    >
+      Detect location
+    </button>
+    <button
+      *ngIf="watchID"
+      type="button"
+      mat-raised-button
+      color="primary"
+      class="btn btn-primary"
+      (click)="clearWatch()"
+    >
+      Stop Tracking
+    </button>
   </div>
 
-  <div *ngIf="errorMessage" (click)="errorMessage = ''" class="alert alert-danger">{{ errorMessage }}</div>
+  <div
+    *ngIf="errorMessage"
+    (click)="errorMessage = ''"
+    class="alert alert-danger"
+  >
+    {{ errorMessage }}
+  </div>
 </form>

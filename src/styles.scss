@@ -1,6 +1,7 @@
-@import 'variables';
-@import '../node_modules/bootstrap/scss/bootstrap';
-@import '../node_modules/font-awesome/scss/font-awesome';
+// @import 'variables';
+// @import '../node_modules/bootstrap/scss/bootstrap';
+// @import '../node_modules/font-awesome/scss/font-awesome';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 body {
   background-image: url('assets/clouds.jpg');
@@ -8,4 +9,13 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
