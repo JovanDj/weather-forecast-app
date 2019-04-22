@@ -1,13 +1,11 @@
 <main class="main" fxLayout="column" fxLayoutAlign="start center">
   <mat-card class="weather-form">
     <mat-card-content>
-      <app-weather-form
-        (weatherReceived)="receiveWeather($event)"
-      ></app-weather-form>
+      <app-weather-form></app-weather-form>
     </mat-card-content>
   </mat-card>
 
-  <section *ngIf="currentWeather">
+  <section *ngIf="(currentWeather$ | async) as currentWeather">
     <mat-card matRipple matRippleColor="primary">
       <mat-card-header>
         <img mat-card-avatar [src]="currentWeather.current.condition.icon" />

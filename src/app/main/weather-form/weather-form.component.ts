@@ -1,8 +1,7 @@
 import { CityOption } from './../../models/city-option.model';
 import { WeatherForm } from './../../models/weather-form.model';
-import { CurrentWeather } from './../../models/current-weather.model';
 import { WeatherService } from './../../services/weather.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -12,7 +11,6 @@ import { Observable } from 'rxjs/internal/Observable';
   styleUrls: ['./weather-form.component.scss']
 })
 export class WeatherFormComponent implements OnInit {
-  @Output() weatherReceived = new EventEmitter<CurrentWeather>();
   weatherForm: FormGroup;
   cityOptions!: Observable<CityOption[]>;
   watchID = 0;
@@ -34,12 +32,8 @@ export class WeatherFormComponent implements OnInit {
 
   getCurrentWeather(weatherForm: WeatherForm): void {
     this.loading = true;
-    this.weatherService
-      .getCurrentWeather(weatherForm.q)
-      .subscribe((currentWeather: CurrentWeather) => {
-        this.weatherReceived.emit(currentWeather);
-        this.loading = false;
-      });
+    this.weatherService.getCurrentWeather(weatherForm.q);
+    this.loading = false;
   }
 
   getCityOptions(weatherForm: WeatherForm): void {
@@ -56,11 +50,7 @@ export class WeatherFormComponent implements OnInit {
         // Success
         (position: Position) => {
           const q = `${position.coords.latitude},${position.coords.longitude}`;
-          this.weatherService
-            .getCurrentWeather(q)
-            .subscribe((currentWeather: CurrentWeather) => {
-              this.weatherReceived.emit(currentWeather);
-            });
+          this.weatherService.getCurrentWeather(q);
         },
 
         // Error

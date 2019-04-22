@@ -7,13 +7,15 @@
     fxLayout="column"
   >
     <mat-form-field>
+      <mat-label>Enter City name to continue</mat-label>
+
       <input
         matInput
         (keyup)="getCityOptions(weatherForm.value)"
         formControlName="q"
         type="text"
         id="city_name"
-        placeholder="Enter city name"
+        placeholder="City name"
         [matAutocomplete]="auto"
       />
 
@@ -67,6 +69,6 @@
       {{ errorMessage }}
     </div>
   </form>
-
-  <mat-spinner *ngIf="loading"></mat-spinner>
 </section>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

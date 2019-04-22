@@ -1,5 +1,7 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { CurrentWeather } from '../models/current-weather.model';
+import { Observable } from 'rxjs';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-main',
@@ -7,33 +9,29 @@ import { CurrentWeather } from '../models/current-weather.model';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  currentWeather: CurrentWeather;
+  currentWeather$: Observable<CurrentWeather>;
 
-  constructor(private renderer: Renderer2) {}
-
-  receiveWeather(currentWeather: CurrentWeather): void {
-    this.currentWeather = currentWeather;
-    console.log(currentWeather);
-    this.changeBackground();
+  constructor(private weatherService: WeatherService) {
+    this.currentWeather$ = this.weatherService.weather$;
   }
 
-  private changeBackground(): void {
-    if (this.currentWeather.current.is_day === 1) {
-      this.renderer.removeStyle(document.body, 'background-image');
-      this.renderer.setStyle(
-        document.body,
-        'background-image',
-        'url("assets/day.png")'
-      );
-      this.renderer.setStyle(document.body, 'color', '#000');
-    } else {
-      this.renderer.removeStyle(document.body, 'background-image');
-      this.renderer.setStyle(
-        document.body,
-        'background-image',
-        'url("assets/night.png")'
-      );
-      this.renderer.setStyle(document.body, 'color', '#000');
-    }
-  }
+  // private changeBackground(): void {
+  //   if (this.currentWeather.current.is_day === 1) {
+  //     this.renderer.removeStyle(document.body, 'background-image');
+  //     this.renderer.setStyle(
+  //       document.body,
+  //       'background-image',
+  //       'url("assets/day.png")'
+  //     );
+  //     this.renderer.setStyle(document.body, 'color', '#000');
+  //   } else {
+  //     this.renderer.removeStyle(document.body, 'background-image');
+  //     this.renderer.setStyle(
+  //       document.body,
+  //       'background-image',
+  //       'url("assets/night.png")'
+  //     );
+  //     this.renderer.setStyle(document.body, 'color', '#000');
+  //   }
+  // }
 }
