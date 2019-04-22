@@ -2,8 +2,6 @@
   <form
     [formGroup]="weatherForm"
     (ngSubmit)="getCurrentWeather(weatherForm.value)"
-    novalidate
-    autocomplete="off"
     fxLayout="column"
   >
     <mat-form-field>
@@ -11,7 +9,7 @@
 
       <input
         matInput
-        (keyup)="getCityOptions(weatherForm.value)"
+        (keypress)="getCityOptions(weatherForm.value)"
         formControlName="q"
         type="text"
         id="city_name"
@@ -22,6 +20,7 @@
       <mat-autocomplete
         #auto="matAutocomplete"
         (optionSelected)="selectCity($event.option.value)"
+        [autoActiveFirstOption]="true"
       >
         <mat-option
           id="cities"
