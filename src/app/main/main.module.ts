@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { WeatherFormComponent } from './weather-form/weather-form.component';
 import { MaterialModule } from '../material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [MainComponent, WeatherFormComponent],
@@ -13,7 +14,8 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     MainRoutingModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   exports: [MainComponent]
 })

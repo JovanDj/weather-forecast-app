@@ -9,6 +9,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -21,7 +24,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatListModule,
     MatChipsModule,
     MatRippleModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -33,7 +39,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatListModule,
     MatRippleModule,
     MatChipsModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule {}

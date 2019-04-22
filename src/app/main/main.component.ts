@@ -13,7 +13,7 @@ export class MainComponent {
 
   receiveWeather(currentWeather: CurrentWeather): void {
     this.currentWeather = currentWeather;
-    console.log(this.currentWeather);
+    console.log(currentWeather);
     this.changeBackground();
   }
 

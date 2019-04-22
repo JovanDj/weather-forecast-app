@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FooterComponent],
@@ -21,7 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HttpClientModule,
     MainModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
+    MaterialModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     }),

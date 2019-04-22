@@ -1,9 +1,11 @@
-<div class="container">
-  <h1>Weather</h1>
-
-  <app-weather-form
-    (weatherReceived)="receiveWeather($event)"
-  ></app-weather-form>
+<main class="main" fxLayout="column" fxLayoutAlign="start center">
+  <mat-card class="weather-form">
+    <mat-card-content>
+      <app-weather-form
+        (weatherReceived)="receiveWeather($event)"
+      ></app-weather-form>
+    </mat-card-content>
+  </mat-card>
 
   <section *ngIf="currentWeather">
     <mat-card matRipple matRippleColor="primary">
@@ -18,12 +20,6 @@
             currentWeather.location.country
           }}</mat-card-subtitle>
         </mat-card-title-group>
-
-        <mat-chip-list color="primary">
-          <mat-chip disabled>{{
-            currentWeather.current.condition.text
-          }}</mat-chip>
-        </mat-chip-list>
       </mat-card-header>
 
       <mat-card-content>
@@ -34,9 +30,11 @@
           <mat-list-item>
             Feels like: {{ currentWeather.current.feelslike_c }} °C
           </mat-list-item>
-          <mat-list-item> Paprika </mat-list-item>
+          <mat-list-item
+            >Wind speed: {{ currentWeather.current.wind_mph }} km/h
+          </mat-list-item>
         </mat-list>
       </mat-card-content>
     </mat-card>
   </section>
-</div>
+</main>

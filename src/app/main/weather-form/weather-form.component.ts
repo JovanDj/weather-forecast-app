@@ -17,17 +17,29 @@ export class WeatherFormComponent implements OnInit {
   cityOptions!: Observable<CityOption[]>;
   watchID = 0;
   errorMessage = '';
+  loading = false;
 
   constructor(private weatherService: WeatherService, private fb: FormBuilder) {
     this.weatherForm = this.fb.group({
-      q: ['', Validators.compose([Validators.maxLength(60), Validators.required, Validators.minLength(3)])]
+      q: [
+        '',
+        Validators.compose([
+          Validators.maxLength(60),
+          Validators.required,
+          Validators.minLength(3)
+        ])
+      ]
     });
   }
 
   getCurrentWeather(weatherForm: WeatherForm): void {
-    this.weatherService.getCurrentWeather(weatherForm.q).subscribe((currentWeather: CurrentWeather) => {
-      this.weatherReceived.emit(currentWeather);
-    });
+    this.loading = true;
+    this.weatherService
+      .getCurrentWeather(weatherForm.q)
+      .subscribe((currentWeather: CurrentWeather) => {
+        this.weatherReceived.emit(currentWeather);
+        this.loading = false;
+      });
   }
 
   getCityOptions(weatherForm: WeatherForm): void {
@@ -44,9 +56,11 @@ export class WeatherFormComponent implements OnInit {
         // Success
         (position: Position) => {
           const q = `${position.coords.latitude},${position.coords.longitude}`;
-          this.weatherService.getCurrentWeather(q).subscribe((currentWeather: CurrentWeather) => {
-            this.weatherReceived.emit(currentWeather);
-          });
+          this.weatherService
+            .getCurrentWeather(q)
+            .subscribe((currentWeather: CurrentWeather) => {
+              this.weatherReceived.emit(currentWeather);
+            });
         },
 
         // Error
