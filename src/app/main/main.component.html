@@ -5,51 +5,38 @@
     (weatherReceived)="receiveWeather($event)"
   ></app-weather-form>
 
-  <section
-    *ngIf="currentWeather"
-    class="d-flex justify-content-center align-items-center my-5"
-  >
-    <table class="table table-striped align-middle">
-      <tr>
-        <th>Location</th>
-        <th>Weather</th>
-      </tr>
-      <tr>
-        <td>{{ currentWeather.location.name }}</td>
-        <td>
-          {{ currentWeather.current.condition.text }}
-          <img
-            width="64"
-            height="64"
-            class="img-fluid p-0"
-            [src]="currentWeather.current.condition.icon"
-            alt="currentWeather.current.condition.code"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>{{ currentWeather.location.region }}</td>
-        <td>{{ currentWeather.current.temp_c }} &#8451;</td>
-      </tr>
-      <tr>
-        <td>{{ currentWeather.location.country }}</td>
-        <td>Wind speed: {{ currentWeather.current.wind_kph }} km/h</td>
-      </tr>
-      <tr>
-        <td>
-          {{ currentWeather.location.lat }} Latitude,
-          {{ currentWeather.location.lon }} Longitude
-        </td>
-        <td>Cloud coverage: {{ currentWeather.current.cloud }}%</td>
-      </tr>
-      <tr>
-        <td>{{ currentWeather.location.localtime | date: 'medium' }}</td>
+  <section *ngIf="currentWeather">
+    <mat-card matRipple matRippleColor="primary">
+      <mat-card-header>
+        <img mat-card-avatar [src]="currentWeather.current.condition.icon" />
+        <mat-card-title-group>
+          <mat-card-title
+            >{{ currentWeather.location.name }},
+            {{ currentWeather.location.region }}</mat-card-title
+          >
+          <mat-card-subtitle>{{
+            currentWeather.location.country
+          }}</mat-card-subtitle>
+        </mat-card-title-group>
 
-        <td>
-          Last updated:
-          {{ currentWeather.current.last_updated | date: 'medium' }}
-        </td>
-      </tr>
-    </table>
+        <mat-chip-list color="primary">
+          <mat-chip disabled>{{
+            currentWeather.current.condition.text
+          }}</mat-chip>
+        </mat-chip-list>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item
+            >Temperature: {{ currentWeather.current.temp_c }} °C
+          </mat-list-item>
+          <mat-list-item>
+            Feels like: {{ currentWeather.current.feelslike_c }} °C
+          </mat-list-item>
+          <mat-list-item> Paprika </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
   </section>
 </div>

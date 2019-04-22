@@ -12,6 +12,7 @@
     "importHelpers": true,
     "target": "es3",
     "strict": true,
+    "strictPropertyInitialization": false,
     "suppressImplicitAnyIndexErrors": true,
     "noFallthroughCasesInSwitch": true,
     "removeComments": true,

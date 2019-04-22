@@ -1,5 +1,25 @@
-table {
-  td {
-    vertical-align: middle;
-  }
+mat-card {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.mat-footer {
+  padding-left: 15px;
+}
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-card-header {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+
+.mat-card-content {
+  flex-grow: 1;
+  overflow: auto;
 }
