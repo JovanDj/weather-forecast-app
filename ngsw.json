@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1555978593226,
+  "timestamp": 1555978820595,
   "index": "https://jovandj.github.io/weather-forecast-app/index.html",
   "assetGroups": [
     {
@@ -33,6 +33,7 @@
         "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-512x512.png",
         "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-72x72.png",
         "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-96x96.png",
+        "https://jovandj.github.io/weather-forecast-app/assets/jovan.jpg",
         "https://jovandj.github.io/weather-forecast-app/assets/night.png",
         "https://jovandj.github.io/weather-forecast-app/clouds.d185caba706c2747921a.jpg"
       ],
@@ -70,10 +71,11 @@
     "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
     "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://jovandj.github.io/weather-forecast-app/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://jovandj.github.io/weather-forecast-app/assets/jovan.jpg": "7e955f7f311edf019ba2d4523096245946437777",
     "https://jovandj.github.io/weather-forecast-app/assets/night.png": "0a5747c0ef7aa7a4f7fff2b0fc6ef469716c6739",
     "https://jovandj.github.io/weather-forecast-app/clouds.d185caba706c2747921a.jpg": "c36e777770cb4fddcc810e16f4e877ee0235dcd0",
     "https://jovandj.github.io/weather-forecast-app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://jovandj.github.io/weather-forecast-app/index.html": "63d5972cd84272fb3974f280aaa934d4b4934cd3",
+    "https://jovandj.github.io/weather-forecast-app/index.html": "4578a1961cbc5cf9c93d04244e851bc02fd38b08",
     "https://jovandj.github.io/weather-forecast-app/main.595d275bcb5a931d99ac.js": "351adbca9cfdaa73b3b2a203d1e6fdb03057b01f",
     "https://jovandj.github.io/weather-forecast-app/polyfills.a340e5b77583aee02db5.js": "6946e10a03311677a01490b8e91741668e64e17e",
     "https://jovandj.github.io/weather-forecast-app/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
