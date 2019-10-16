@@ -4,44 +4,7 @@
     (ngSubmit)="getCurrentWeather(weatherForm.value)"
     fxLayout="column"
   >
-    <mat-form-field>
-      <mat-label>Enter City name to continue</mat-label>
-
-      <input
-        matInput
-        (keypress)="getCityOptions(weatherForm.value)"
-        formControlName="q"
-        type="text"
-        id="city_name"
-        placeholder="City name"
-        [matAutocomplete]="auto"
-      />
-
-      <mat-autocomplete
-        #auto="matAutocomplete"
-        (optionSelected)="selectCity($event.option.value)"
-        [autoActiveFirstOption]="true"
-      >
-        <mat-option
-          id="cities"
-          *ngFor="let city of (cityOptions$ | async)"
-          [value]="city.name"
-        >
-          {{ city.name }}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-
     <ng-container>
-      <button
-        mat-raised-button
-        color="primary"
-        [disabled]="weatherForm.invalid"
-        type="submit"
-        class="weather-btn"
-      >
-        Submit
-      </button>
       <button
         *ngIf="!watchID"
         mat-raised-button

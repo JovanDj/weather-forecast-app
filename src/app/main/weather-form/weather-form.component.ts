@@ -1,5 +1,3 @@
-import { CityOption } from './../../models/city-option.model';
-import { WeatherForm } from './../../models/weather-form.model';
 import { WeatherService } from './../../services/weather.service';
 import {
   Component,
@@ -9,7 +7,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs/internal/Observable';
+import { WeatherForm } from '../../models/weather-form.model';
 
 @Component({
   selector: 'app-weather-form',
@@ -20,13 +18,11 @@ import { Observable } from 'rxjs/internal/Observable';
 export class WeatherFormComponent implements OnInit {
   weatherForm: FormGroup;
   @Output() readonly weatherChange = new EventEmitter();
-  cityOptions$: Observable<CityOption[]>;
   watchID = 0;
   errorMessage = '';
   loading = false;
 
   constructor(private weatherService: WeatherService, private fb: FormBuilder) {
-    this.cityOptions$ = this.weatherService.cityOptions$;
     this.weatherForm = this.fb.group({
       q: [
         '',
@@ -44,14 +40,6 @@ export class WeatherFormComponent implements OnInit {
     this.weatherService.getCurrentWeather(weatherForm.q);
     this.weatherChange.emit();
     this.loading = false;
-  }
-
-  getCityOptions(weatherForm: WeatherForm): void {
-    this.clearWatch();
-
-    if (weatherForm.q.length > 3) {
-      this.weatherService.getCityOptions(weatherForm.q);
-    }
   }
 
   getCoords(): void {

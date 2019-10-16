@@ -1,7 +1,7 @@
 import { Component, Renderer2, ChangeDetectionStrategy } from '@angular/core';
-import { CurrentWeather } from '../models/current-weather.model';
 import { Observable } from 'rxjs';
 import { WeatherService } from '../services/weather.service';
+import { API } from '../models/current.model';
 
 @Component({
   selector: 'app-main',
@@ -10,21 +10,21 @@ import { WeatherService } from '../services/weather.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent {
-  currentWeather$: Observable<CurrentWeather>;
+  api$: Observable<API>;
 
   constructor(
     private weatherService: WeatherService,
     private renderer: Renderer2
   ) {
-    this.currentWeather$ = this.weatherService.weather$;
+    this.api$ = this.weatherService.weather$;
 
-    this.currentWeather$.subscribe((currentWeather: CurrentWeather) => {
-      this.changeBackground(currentWeather);
+    this.api$.subscribe((api: API) => {
+      this.changeBackground(api);
     });
   }
 
-  private changeBackground(currentWeather: CurrentWeather): void {
-    if (currentWeather.current.is_day === 1) {
+  private changeBackground(api: API): void {
+    if (api.current.is_day) {
       this.renderer.removeStyle(document.body, 'background-image');
       this.renderer.setStyle(
         document.body,
