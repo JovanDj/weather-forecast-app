@@ -1,12 +1,12 @@
-import { Component, Renderer2, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs';
-import { WeatherService } from '../services/weather.service';
-import { API } from '../models/current.model';
+import { ChangeDetectionStrategy, Component, Renderer2 } from "@angular/core";
+import { Observable } from "rxjs";
+import { API } from "../models/current.model";
+import { WeatherService } from "../services/weather.service";
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  selector: "app-main",
+  templateUrl: "./main.component.html",
+  styleUrls: ["./main.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent {
@@ -25,21 +25,21 @@ export class MainComponent {
 
   private changeBackground(api: API): void {
     if (api.current.is_day) {
-      this.renderer.removeStyle(document.body, 'background-image');
+      this.renderer.removeStyle(document.body, "background-image");
       this.renderer.setStyle(
         document.body,
-        'background-image',
+        "background-image",
         'url("assets/day.png")'
       );
-      this.renderer.setStyle(document.body, 'color', '#000');
+      this.renderer.setStyle(document.body, "color", "#000");
     } else {
-      this.renderer.removeStyle(document.body, 'background-image');
+      this.renderer.removeStyle(document.body, "background-image");
       this.renderer.setStyle(
         document.body,
-        'background-image',
+        "background-image",
         'url("assets/night.png")'
       );
-      this.renderer.setStyle(document.body, 'color', '#000');
+      this.renderer.setStyle(document.body, "color", "#000");
     }
   }
 }

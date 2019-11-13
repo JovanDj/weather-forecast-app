@@ -1,7 +1,17 @@
 {
   "rulesDirectory": ["codelyzer"],
+
+  "extends": ["tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
-    "typedef": [true, "call-signature", "parameter", "arrow-call-signature", "arrow-parameter", "property-declaration"],
+    "prettier": true,
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "arrow-call-signature",
+      "arrow-parameter",
+      "property-declaration"
+    ],
     "no-any": true,
     "adjacent-overload-signatures": true,
     "no-internal-module": true,
@@ -21,7 +31,6 @@
     "forin": true,
     "import-blacklist": [true, "rxjs/Rx"],
     "import-spacing": true,
-    "indent": [true, "spaces", "2"],
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [true, 140],
@@ -29,7 +38,12 @@
     "member-ordering": [
       true,
       {
-        "order": ["static-field", "instance-field", "static-method", "instance-method"]
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
       }
     ],
     "no-arg": true,
@@ -55,7 +69,13 @@
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
-    "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
     "prefer-const": true,
     "quotemark": [true, "single"],
     "radix": true,
@@ -73,7 +93,14 @@
     ],
     "unified-signatures": true,
     "variable-name": true,
-    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

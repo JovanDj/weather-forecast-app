@@ -1,31 +1,30 @@
-import { WeatherService } from './../../services/weather.service';
 import {
+  ChangeDetectionStrategy,
   Component,
-  OnInit,
-  Output,
   EventEmitter,
-  ChangeDetectionStrategy
-} from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { WeatherForm } from '../../models/weather-form.model';
+  Output
+} from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { WeatherForm } from "../../models/weather-form.model";
+import { WeatherService } from "./../../services/weather.service";
 
 @Component({
-  selector: 'app-weather-form',
-  templateUrl: './weather-form.component.html',
-  styleUrls: ['./weather-form.component.scss'],
+  selector: "app-weather-form",
+  templateUrl: "./weather-form.component.html",
+  styleUrls: ["./weather-form.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WeatherFormComponent implements OnInit {
+export class WeatherFormComponent {
   weatherForm: FormGroup;
-  @Output() readonly weatherChange = new EventEmitter();
-  watchID = 0;
-  errorMessage = '';
+  @Output() weatherChange = new EventEmitter();
+  errorMessage = "";
   loading = false;
+  locationDetected = false;
 
   constructor(private weatherService: WeatherService, private fb: FormBuilder) {
     this.weatherForm = this.fb.group({
       q: [
-        '',
+        "",
         Validators.compose([
           Validators.maxLength(60),
           Validators.required,
@@ -44,33 +43,28 @@ export class WeatherFormComponent implements OnInit {
 
   getCoords(): void {
     if (navigator.geolocation) {
-      this.watchID = navigator.geolocation.watchPosition(
-        // Success
-        (position: Position) => {
-          const q = `${position.coords.latitude},${position.coords.longitude}`;
-          this.weatherService.getCurrentWeather(q);
-        },
-
-        // Error
-        (err: PositionError) => {
-          this.errorMessage = err.message;
-        },
+      navigator.geolocation.getCurrentPosition(
+        this.getCurrentPositionSuccess(),
+        this.getCurrentPositionError(),
         { enableHighAccuracy: true }
       );
     } else {
-      this.errorMessage = 'Geolocation is not supported by this browser.';
+      this.errorMessage = "Geolocation is not supported by this browser.";
     }
   }
-
-  clearWatch(): void {
-    navigator.geolocation.clearWatch(this.watchID);
-    this.watchID = 0;
+  private getCurrentPositionSuccess(): PositionCallback {
+    return (position: Position) => {
+      const q = `${position.coords.latitude},${position.coords.longitude}`;
+      this.locationDetected = true;
+      this.weatherService.getCurrentWeather(q);
+    };
   }
 
-  selectCity(city: string): void {
-    this.weatherForm.setValue({ q: city });
-    this.weatherService.getCurrentWeather(city);
-  }
+  private getCurrentPositionError(): PositionErrorCallback | undefined {
+    return (err: PositionError) => {
+      this.locationDetected = false;
 
-  ngOnInit(): void {}
+      this.errorMessage = err.message;
+    };
+  }
 }

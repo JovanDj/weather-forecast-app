@@ -6,17 +6,16 @@
   >
     <ng-container>
       <button
-        *ngIf="!watchID"
         mat-raised-button
-        matTooltip="Use your devices GPS to track your location realtime."
+        matTooltip="Use your devices GPS to detect your current location."
         color="primary"
         type="button"
         matRipple
         (click)="getCoords()"
       >
-        Detect location
+        {{ locationDetected ? "Location detected!" : "Detect location" }}
       </button>
-      <button
+      <!-- <button
         *ngIf="watchID"
         type="button"
         mat-raised-button
@@ -26,7 +25,7 @@
         (click)="clearWatch()"
       >
         Stop Tracking
-      </button>
+      </button> -->
     </ng-container>
 
     <div *ngIf="errorMessage" (click)="errorMessage = ''">

@@ -10,7 +10,8 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss"
+          "styleext": "scss",
+          "changeDetection": "OnPush"
         }
       },
       "architect": {
@@ -20,6 +21,7 @@
             "outputPath": "dist/weather-app",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "aot": true,
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"],
