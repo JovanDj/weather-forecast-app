@@ -105,9 +105,6 @@ MIT
 @angular/router
 MIT
 
-@angular/service-worker
-MIT
-
 @angularclass/hmr
 Apache-2.0
                                  Apache License
