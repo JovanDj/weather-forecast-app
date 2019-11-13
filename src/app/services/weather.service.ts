@@ -68,9 +68,7 @@ export class WeatherService {
   private store = new BehaviorSubject<State>(_state);
   private state$ = this.store.asObservable();
 
-  constructor(private http: HttpClient) {
-    this.state$.subscribe(state => console.log(state));
-  }
+  constructor(private http: HttpClient) {}
 
   loading$ = this.state$.pipe(
     map(state => {

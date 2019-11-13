@@ -1,10 +1,10 @@
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { WeatherFormComponent } from './weather-form.component';
+import { WeatherFormComponent } from "./weather-form.component";
 
-describe('WeatherFormComponent', () => {
+describe("WeatherFormComponent", () => {
   let component: WeatherFormComponent;
   let fixture: ComponentFixture<WeatherFormComponent>;
 
@@ -21,7 +21,7 @@ describe('WeatherFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
