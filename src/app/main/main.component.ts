@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Renderer2 } from "@angular/core";
-import { Observable } from "rxjs";
+import { tap } from "rxjs/operators";
 import { API } from "../models/current.model";
 import { WeatherService } from "../services/weather.service";
 
@@ -10,17 +10,21 @@ import { WeatherService } from "../services/weather.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainComponent {
-  api$: Observable<API>;
+  api$ = this.weatherService.api$;
+  loaded$ = this.weatherService.loaded$;
+  loading$ = this.weatherService.loading$;
 
   constructor(
     private weatherService: WeatherService,
     private renderer: Renderer2
   ) {
-    this.api$ = this.weatherService.weather$;
-
-    this.api$.subscribe((api: API) => {
-      this.changeBackground(api);
-    });
+    this.api$
+      .pipe(
+        tap((api: API) => {
+          this.changeBackground(api);
+        })
+      )
+      .subscribe();
   }
 
   private changeBackground(api: API): void {
@@ -30,6 +34,14 @@ export class MainComponent {
         document.body,
         "background-image",
         'url("assets/day.png")'
+      );
+      this.renderer.setStyle(document.body, "color", "#000");
+    } else if (api.current.is_day === "") {
+      this.renderer.removeStyle(document.body, "background-image");
+      this.renderer.setStyle(
+        document.body,
+        "background-image",
+        'url("assets/clouds.jpg")'
       );
       this.renderer.setStyle(document.body, "color", "#000");
     } else {

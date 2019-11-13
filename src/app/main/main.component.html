@@ -5,8 +5,12 @@
     </mat-card-content>
   </mat-card>
 
-  <section *ngIf="api$ | async as currentWeather">
-    <mat-card matRipple matRippleColor="primary">
+  <section *ngIf="loaded$ | async">
+    <mat-card
+      *ngIf="api$ | async as currentWeather"
+      matRipple
+      matRippleColor="primary"
+    >
       <mat-card-header>
         <img mat-card-avatar [src]="currentWeather.current.weather_icons[0]" />
         <mat-card-title-group>

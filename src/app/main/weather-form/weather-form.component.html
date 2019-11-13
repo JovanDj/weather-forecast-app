@@ -1,37 +1,19 @@
-<section class="weather-form">
-  <form
-    [formGroup]="weatherForm"
-    (ngSubmit)="getCurrentWeather(weatherForm.value)"
-    fxLayout="column"
+<section class="weather" fxLayout="column">
+  <button
+    mat-raised-button
+    matTooltip="Use your devices GPS to detect your current location."
+    color="primary"
+    type="button"
+    matRipple
+    [disabled]="locationDetected$ | async"
+    (click)="getCoords()"
   >
-    <ng-container>
-      <button
-        mat-raised-button
-        matTooltip="Use your devices GPS to detect your current location."
-        color="primary"
-        type="button"
-        matRipple
-        (click)="getCoords()"
-      >
-        {{ locationDetected ? "Location detected!" : "Detect location" }}
-      </button>
-      <!-- <button
-        *ngIf="watchID"
-        type="button"
-        mat-raised-button
-        matRipple
-        matTooltip="Disable realtime GPS tracking."
-        color="primary"
-        (click)="clearWatch()"
-      >
-        Stop Tracking
-      </button> -->
-    </ng-container>
+    {{ (locationDetected$ | async) ? "Location detected!" : "Detect location" }}
+  </button>
 
-    <div *ngIf="errorMessage" (click)="errorMessage = ''">
-      {{ errorMessage }}
-    </div>
-  </form>
+  <div *ngIf="errorMessage" (click)="errorMessage = ''">
+    {{ errorMessage }}
+  </div>
 </section>
 
-<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-spinner *ngIf="loading$ | async" mode="indeterminate"></mat-spinner>
