@@ -27,7 +27,6 @@
     "@angular/service-worker": "^9.1.13",
     "core-js": "^2.6.10",
     "font-awesome": "^4.7.0",
-    "hammerjs": "^2.0.8",
     "rxjs": "^6.5.3",
     "tslib": "^1.10.0",
     "tslint-config-prettier": "^1.18.0",
