@@ -1,46 +1,52 @@
-<main class="main" fxLayout="column" fxLayoutAlign="start center">
-  <mat-card class="weather-form">
-    <mat-card-content>
-      <app-weather-form></app-weather-form>
-    </mat-card-content>
-  </mat-card>
+<ng-container *ngIf="vm$ | async as vm">
+  <main class="main">
+    <mat-card class="weather-form">
+      <mat-card-content>
+        <app-weather-form
+          [loading]="vm.loading"
+          [error]="vm.error"
+          [locationDetected]="vm.locationDetected"
+          [locationDetectedMessage]="vm.locationDetectedMessage"
+          (locationButtonClick)="onLocationButtonClick()"
+          (errorMessageClick)="onErrorMessageClick()"
+        ></app-weather-form>
+      </mat-card-content>
+    </mat-card>
 
-  <section *ngIf="loaded$ | async">
-    <mat-card
-      *ngIf="api$ | async as currentWeather"
-      matRipple
-      matRippleColor="primary"
-    >
-      <mat-card-header>
-        <img mat-card-avatar [src]="currentWeather.current.weather_icons[0]" />
-        <mat-card-title-group>
-          <mat-card-title
-            ><a
-              href="https://en.wikipedia.org/wiki/{{
-                currentWeather.location.name
-              }}"
-              >{{ currentWeather.location.name }}</a
+    <section *ngIf="vm.loaded">
+      <mat-card
+        *ngIf="vm.api as currentWeather"
+        matRipple
+        matRippleColor="primary"
+      >
+        <mat-card-header>
+          <img
+            mat-card-avatar
+            [src]="currentWeather.current.weather_icons[0]"
+          />
+          <mat-card-title>
+            <a [href]="vm.locationWiki">{{ currentWeather.location.name }}</a
             >, {{ currentWeather.location.region }}</mat-card-title
           >
           <mat-card-subtitle>{{
             currentWeather.location.country
           }}</mat-card-subtitle>
-        </mat-card-title-group>
-      </mat-card-header>
+        </mat-card-header>
 
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item
-            >Temperature: {{ currentWeather.current.temperature }} °C
-          </mat-list-item>
-          <mat-list-item>
-            Feels like: {{ currentWeather.current.feelslike }} °C
-          </mat-list-item>
-          <mat-list-item
-            >Wind speed: {{ currentWeather.current.wind_speed }} km/h
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
-  </section>
-</main>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item
+              >Temperature: {{ currentWeather.current.temperature }} °C
+            </mat-list-item>
+            <mat-list-item>
+              Feels like: {{ currentWeather.current.feelslike }} °C
+            </mat-list-item>
+            <mat-list-item
+              >Wind speed: {{ currentWeather.current.wind_speed }} km/h
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </main>
+</ng-container>

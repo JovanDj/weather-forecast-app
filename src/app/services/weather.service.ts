@@ -1,128 +1,188 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { inject, Injectable, RendererFactory2 } from "@angular/core";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 import {
   distinctUntilChanged,
   finalize,
   map,
-  shareReplay,
-  tap
+  switchMap,
+  tap,
 } from "rxjs/operators";
+
+import { DOCUMENT } from "@angular/common";
 import { environment } from "src/environments/environment";
 import { API } from "../models/current.model";
 
-export interface State {
+export type State = {
   api: API;
   loading: boolean;
   loaded: boolean;
-}
-
-let _state: State = {
-  api: {
-    current: {
-      cloudcover: 0,
-      feelslike: 0,
-      humidity: 0,
-      is_day: "",
-      observation_time: "",
-      precip: 0,
-      pressure: 0,
-      temperature: 0,
-      uv_index: 0,
-      visibility: 0,
-      weather_code: 0,
-      weather_descriptions: [],
-      weather_icons: [],
-      wind_degree: 0,
-      wind_dir: "",
-      wind_speed: 0
-    },
-    location: {
-      country: "",
-      lat: "",
-      localtime: "",
-      localtime_epoch: 0,
-      lon: "",
-      name: "",
-      region: "",
-      timezone_id: "",
-      utc_offset: ""
-    },
-    request: {
-      language: "",
-      query: "",
-      type: "",
-      unit: ""
-    }
-  },
-  loading: false,
-  loaded: false
+  locationDetected: boolean;
+  error: string;
 };
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class WeatherService {
-  private currentUrl = `http://api.weatherstack.com/current?access_key=${environment.apiKey}`;
+  readonly #http = inject(HttpClient);
+  readonly #renderer = inject(RendererFactory2).createRenderer(null, null);
+  readonly #body = inject(DOCUMENT).body;
 
-  private store = new BehaviorSubject<State>(_state);
-  private state$ = this.store.asObservable();
+  readonly #currentUrl = `http://api.weatherstack.com/current?access_key=${environment.apiKey}`;
 
-  constructor(private http: HttpClient) {}
+  readonly #store = new BehaviorSubject<State>({
+    api: {
+      current: {
+        cloudcover: 0,
+        feelslike: 0,
+        humidity: 0,
+        is_day: "",
+        observation_time: "",
+        precip: 0,
+        pressure: 0,
+        temperature: 0,
+        uv_index: 0,
+        visibility: 0,
+        weather_code: 0,
+        weather_descriptions: [],
+        weather_icons: [],
+        wind_degree: 0,
+        wind_dir: "",
+        wind_speed: 0,
+      },
+      location: {
+        country: "",
+        lat: "",
+        localtime: "",
+        localtime_epoch: 0,
+        lon: "",
+        name: "",
+        region: "",
+        timezone_id: "",
+        utc_offset: "",
+      },
+      request: {
+        language: "",
+        query: "",
+        type: "",
+        unit: "",
+      },
+    },
+    loading: false,
+    loaded: false,
+    locationDetected: false,
+    error: "",
+  });
 
-  loading$ = this.state$.pipe(
-    map(state => {
-      return state.loading;
-    }),
+  readonly #state$ = this.#store.asObservable();
+
+  readonly weather$ = this.#state$.pipe(
+    map((state) => ({
+      loading: state.loading,
+      locationDetected: state.locationDetected,
+      locationDetectedMessage: state.locationDetected
+        ? "Location detected!"
+        : "Detect location",
+      loaded: state.loaded,
+      error: state.error,
+      api: state.api,
+      locationWiki: `https://en.wikipedia.org/wiki/${state.api.location.name}`,
+    })),
     distinctUntilChanged(),
-    shareReplay()
   );
 
-  loaded$ = this.state$.pipe(
-    map(state => {
-      return state.loaded;
-    }),
-    distinctUntilChanged(),
-    shareReplay()
-  );
+  readonly #detectLocation$ = new Subject<void>();
 
-  api$ = this.state$.pipe(
-    map(state => {
-      return state.api;
-    }),
-    distinctUntilChanged(),
-    shareReplay()
-  );
-
-  getCurrentWeather(q: string): void {
-    let params: HttpParams = new HttpParams();
-
-    params = params.set("query", q);
-
-    this.updateLoading(true);
-
-    this.http
-      .get<API>(this.currentUrl, { params })
+  constructor() {
+    this.#detectLocation$
       .pipe(
-        tap((api: API) => {
-          this.updateState(api, false, true);
+        switchMap(() => this.#getCurrentPosition$()),
+        switchMap((q) => this.#getCurrentWeather(q)),
+        tap((api) => {
+          this.#changeBackground(api);
         }),
-        finalize(() => {
-          this.updateLoading(false);
-        })
       )
       .subscribe();
   }
 
-  private updateState(api: API, loading: boolean, loaded: boolean) {
-    this.updateStore({ ..._state, api, loading, loaded });
+  #getCurrentPosition$() {
+    return new Observable<string>((observer) => {
+      if (!navigator.geolocation) {
+        this.#updateState({
+          error: "Geolocation not supported",
+          locationDetected: false,
+        });
+        observer.complete();
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const q = `${position.coords.latitude},${position.coords.longitude}`;
+          this.#updateState({ locationDetected: true, loading: true });
+          observer.next(q);
+          observer.complete();
+        },
+        (error) => {
+          this.#updateState({ error: error.message, locationDetected: false });
+          observer.complete();
+        },
+        { enableHighAccuracy: true },
+      );
+    });
   }
 
-  private updateLoading(loading: boolean) {
-    this.updateStore({ ..._state, loading });
+  detectLocation() {
+    this.#detectLocation$.next();
   }
 
-  private updateStore(state: State) {
-    this.store.next((_state = state));
+  clearErrorMessage() {
+    this.#updateState({ error: "" });
+  }
+
+  #getCurrentWeather(q: string) {
+    const params = new HttpParams().set("query", q);
+
+    return this.#http.get<API>(this.#currentUrl, { params }).pipe(
+      tap((api) => {
+        this.#updateState({ api, loaded: true });
+      }),
+      finalize(() => {
+        this.#updateState({ loading: false });
+      }),
+    );
+  }
+
+  #changeBackground(api: API) {
+    if (api.current.is_day !== "no") {
+      this.#renderer.removeStyle(this.#body, "background-image");
+      this.#renderer.setStyle(
+        this.#body,
+        "background-image",
+        'url("assets/day.png")',
+      );
+      this.#renderer.setStyle(this.#body, "color", "#000");
+    } else if (api.current.is_day === "no") {
+      this.#renderer.removeStyle(this.#body, "background-image");
+      this.#renderer.setStyle(
+        this.#body,
+        "background-image",
+        'url("assets/night.png")',
+      );
+      this.#renderer.setStyle(this.#body, "color", "#000");
+    } else {
+      this.#renderer.removeStyle(this.#body, "background-image");
+      this.#renderer.setStyle(
+        this.#body,
+        "background-image",
+        'url("assets/clouds.jpg")',
+      );
+      this.#renderer.setStyle(this.#body, "color", "#000");
+    }
+  }
+
+  #updateState(state: Partial<State>) {
+    this.#store.next({ ...this.#store.getValue(), ...state });
   }
 }

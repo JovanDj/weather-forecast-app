@@ -1,10 +1,10 @@
-export interface API {
+export type API = {
   request: Request;
   location: Location;
   current: Current;
-}
+};
 
-export interface Current {
+export type Current = {
   observation_time: string;
   temperature: number;
   weather_code: number;
@@ -21,9 +21,9 @@ export interface Current {
   uv_index: number;
   visibility: number;
   is_day: string;
-}
+};
 
-export interface Location {
+export type Location = {
   name: string;
   country: string;
   region: string;
@@ -33,11 +33,11 @@ export interface Location {
   localtime: string;
   localtime_epoch: number;
   utc_offset: string;
-}
+};
 
-export interface Request {
+export type Request = {
   type: string;
   query: string;
   language: string;
   unit: string;
-}
+};

@@ -1,44 +1,46 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { WeatherService } from "./../../services/weather.service";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from "@angular/core";
+
+import { CommonModule } from "@angular/common";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
   selector: "app-weather-form",
   templateUrl: "./weather-form.component.html",
   styleUrls: ["./weather-form.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, MatProgressSpinnerModule],
 })
 export class WeatherFormComponent {
-  errorMessage = "";
-  loading$ = this.weatherService.loading$;
-  locationDetected$ = new BehaviorSubject(false);
+  @Input()
+  locationDetected = false;
 
-  constructor(private weatherService: WeatherService) {}
+  @Input()
+  error = "";
 
-  getCoords(): void {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        this.getCurrentPositionSuccess(),
-        this.getCurrentPositionError(),
-        { enableHighAccuracy: true }
-      );
-    } else {
-      this.errorMessage = "Geolocation is not supported by this browser.";
-    }
-  }
-  private getCurrentPositionSuccess(): PositionCallback {
-    return (position: Position): void => {
-      const q = `${position.coords.latitude},${position.coords.longitude}`;
-      this.locationDetected$.next(true);
-      this.weatherService.getCurrentWeather(q);
-    };
+  @Input()
+  loading = false;
+
+  @Input()
+  locationDetectedMessage = "";
+
+  @Output()
+  locationButtonClick = new EventEmitter();
+
+  @Output()
+  errorMessageClick = new EventEmitter();
+
+  onLocationButtonClick() {
+    this.locationButtonClick.emit();
   }
 
-  private getCurrentPositionError(): PositionErrorCallback | undefined {
-    return (err: PositionError): void => {
-      this.locationDetected$.next(false);
-
-      this.errorMessage = err.message;
-    };
+  onErrorMessageClick() {
+    this.errorMessageClick.emit();
   }
 }

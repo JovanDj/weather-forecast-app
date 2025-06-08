@@ -1,19 +1,19 @@
-<section class="weather" fxLayout="column">
+<section class="weather">
   <button
     mat-raised-button
     matTooltip="Use your devices GPS to detect your current location."
     color="primary"
     type="button"
     matRipple
-    [disabled]="locationDetected$ | async"
-    (click)="getCoords()"
+    [disabled]="locationDetected"
+    (click)="onLocationButtonClick()"
   >
-    {{ (locationDetected$ | async) ? "Location detected!" : "Detect location" }}
+    {{ locationDetectedMessage }}
   </button>
 
-  <div *ngIf="errorMessage" (click)="errorMessage = ''">
-    {{ errorMessage }}
+  <div *ngIf="error" (click)="onErrorMessageClick()">
+    {{ error }}
   </div>
 </section>
 
-<mat-spinner *ngIf="loading$ | async" mode="indeterminate"></mat-spinner>
+<mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>

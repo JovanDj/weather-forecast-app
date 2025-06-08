@@ -1,57 +1,36 @@
-import { ChangeDetectionStrategy, Component, Renderer2 } from "@angular/core";
-import { tap } from "rxjs/operators";
-import { API } from "../models/current.model";
+import { CommonModule } from "@angular/common";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { MatCardModule } from "@angular/material/card";
+import { MatRippleModule } from "@angular/material/core";
+import { MatListModule } from "@angular/material/list";
+
 import { WeatherService } from "../services/weather.service";
+import { WeatherFormComponent } from "./weather-form/weather-form.component";
 
 @Component({
   selector: "app-main",
   templateUrl: "./main.component.html",
   styleUrls: ["./main.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    WeatherFormComponent,
+    CommonModule,
+    MatCardModule,
+    MatRippleModule,
+    MatListModule,
+  ],
 })
 export class MainComponent {
-  api$ = this.weatherService.api$;
-  loaded$ = this.weatherService.loaded$;
-  loading$ = this.weatherService.loading$;
+  readonly #weatherService = inject(WeatherService);
 
-  constructor(
-    private weatherService: WeatherService,
-    private renderer: Renderer2
-  ) {
-    this.api$
-      .pipe(
-        tap((api: API) => {
-          this.changeBackground(api);
-        })
-      )
-      .subscribe();
+  readonly vm$ = this.#weatherService.weather$;
+
+  onLocationButtonClick() {
+    this.#weatherService.detectLocation();
   }
 
-  private changeBackground(api: API): void {
-    if (api.current.is_day) {
-      this.renderer.removeStyle(document.body, "background-image");
-      this.renderer.setStyle(
-        document.body,
-        "background-image",
-        'url("assets/day.png")'
-      );
-      this.renderer.setStyle(document.body, "color", "#000");
-    } else if (api.current.is_day === "") {
-      this.renderer.removeStyle(document.body, "background-image");
-      this.renderer.setStyle(
-        document.body,
-        "background-image",
-        'url("assets/clouds.jpg")'
-      );
-      this.renderer.setStyle(document.body, "color", "#000");
-    } else {
-      this.renderer.removeStyle(document.body, "background-image");
-      this.renderer.setStyle(
-        document.body,
-        "background-image",
-        'url("assets/night.png")'
-      );
-      this.renderer.setStyle(document.body, "color", "#000");
-    }
+  onErrorMessageClick() {
+    this.#weatherService.clearErrorMessage();
   }
 }
