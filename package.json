@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "hmr": "ng serve --configuration hmr",
-    "deploy": "ng build --prod --base-href https://jovandj.github.io/weather-forecast-app/ && npx angular-cli-ghpages --dir dist/weather-app"
+    "deploy": "ng build --configuration production --base-href https://jovandj.github.io/weather-forecast-app/ && npx angular-cli-ghpages --dir dist/weather-app"
   },
   "private": true,
   "dependencies": {
