@@ -23,8 +23,7 @@ import { WeatherFormComponent } from "./weather-form/weather-form.component";
 })
 export class MainComponent {
   readonly #weatherService = inject(WeatherService);
-
-  readonly vm$ = this.#weatherService.weather$;
+  readonly vm = this.#weatherService.weather;
 
   onLocationButtonClick() {
     this.#weatherService.detectLocation();

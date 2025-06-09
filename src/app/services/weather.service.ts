@@ -1,16 +1,19 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { inject, Injectable, RendererFactory2 } from "@angular/core";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
 import {
-  distinctUntilChanged,
-  finalize,
-  map,
-  switchMap,
-  tap,
-} from "rxjs/operators";
+  computed,
+  effect,
+  inject,
+  Injectable,
+  RendererFactory2,
+  signal,
+} from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { Observable, Subject } from "rxjs";
+import { finalize, switchMap, tap } from "rxjs/operators";
 
 import { DOCUMENT } from "@angular/common";
 import { environment } from "src/environments/environment";
+
 import { API } from "../models/current.model";
 
 export type State = {
@@ -31,7 +34,7 @@ export class WeatherService {
 
   readonly #currentUrl = `http://api.weatherstack.com/current?access_key=${environment.apiKey}`;
 
-  readonly #store = new BehaviorSubject<State>({
+  readonly #state = signal<State>({
     api: {
       current: {
         cloudcover: 0,
@@ -75,22 +78,18 @@ export class WeatherService {
     error: "",
   });
 
-  readonly #state$ = this.#store.asObservable();
-
-  readonly weather$ = this.#state$.pipe(
-    map((state) => ({
-      loading: state.loading,
-      locationDetected: state.locationDetected,
+  readonly weather = computed(() => {
+    const state = this.#state();
+    return {
+      ...state,
       locationDetectedMessage: state.locationDetected
         ? "Location detected!"
         : "Detect location",
-      loaded: state.loaded,
-      error: state.error,
-      api: state.api,
-      locationWiki: `https://en.wikipedia.org/wiki/${state.api.location.name}`,
-    })),
-    distinctUntilChanged(),
-  );
+      locationWiki: state.api.location.name
+        ? `https://en.wikipedia.org/wiki/${state.api.location.name}`
+        : "",
+    };
+  });
 
   readonly #detectLocation$ = new Subject<void>();
 
@@ -99,11 +98,13 @@ export class WeatherService {
       .pipe(
         switchMap(() => this.#getCurrentPosition$()),
         switchMap((q) => this.#getCurrentWeather(q)),
-        tap((api) => {
-          this.#changeBackground(api);
-        }),
+        takeUntilDestroyed(),
       )
       .subscribe();
+
+    effect(() => {
+      this.#changeBackground(this.#state().api.current.is_day);
+    });
   }
 
   #getCurrentPosition$() {
@@ -154,35 +155,31 @@ export class WeatherService {
     );
   }
 
-  #changeBackground(api: API) {
-    if (api.current.is_day !== "no") {
-      this.#renderer.removeStyle(this.#body, "background-image");
+  #changeBackground(isDay: API["current"]["is_day"]) {
+    if (!isDay) {
+      return;
+    }
+
+    if (isDay !== "no") {
       this.#renderer.setStyle(
         this.#body,
         "background-image",
         'url("assets/day.png")',
       );
-      this.#renderer.setStyle(this.#body, "color", "#000");
-    } else if (api.current.is_day === "no") {
-      this.#renderer.removeStyle(this.#body, "background-image");
+      return this.#renderer.setStyle(this.#body, "color", "#000");
+    }
+
+    if (isDay === "no") {
       this.#renderer.setStyle(
         this.#body,
         "background-image",
         'url("assets/night.png")',
       );
-      this.#renderer.setStyle(this.#body, "color", "#000");
-    } else {
-      this.#renderer.removeStyle(this.#body, "background-image");
-      this.#renderer.setStyle(
-        this.#body,
-        "background-image",
-        'url("assets/clouds.jpg")',
-      );
-      this.#renderer.setStyle(this.#body, "color", "#000");
+      return this.#renderer.setStyle(this.#body, "color", "#000");
     }
   }
 
-  #updateState(state: Partial<State>) {
-    this.#store.next({ ...this.#store.getValue(), ...state });
+  #updateState(patch: Partial<State>) {
+    this.#state.update((state) => ({ ...state, ...patch }));
   }
 }

@@ -18,16 +18,16 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
   imports: [CommonModule, MatProgressSpinnerModule],
 })
 export class WeatherFormComponent {
-  @Input()
+  @Input({ required: true })
   locationDetected = false;
 
-  @Input()
+  @Input({ required: true })
   error = "";
 
-  @Input()
+  @Input({ required: true })
   loading = false;
 
-  @Input()
+  @Input({ required: true })
   locationDetectedMessage = "";
 
   @Output()
