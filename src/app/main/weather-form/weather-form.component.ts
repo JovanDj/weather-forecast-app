@@ -10,12 +10,11 @@ import { CommonModule } from "@angular/common";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
-  selector: "app-weather-form",
-  templateUrl: "./weather-form.component.html",
-  styleUrls: ["./weather-form.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, MatProgressSpinnerModule],
+    selector: "app-weather-form",
+    templateUrl: "./weather-form.component.html",
+    styleUrls: ["./weather-form.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, MatProgressSpinnerModule]
 })
 export class WeatherFormComponent {
   @Input({ required: true })
