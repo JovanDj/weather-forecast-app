@@ -1,32 +1,27 @@
-import { WeatherFormComponent } from "./main/weather-form/weather-form.component";
-import { MainComponent } from "./main/main.component";
-import { FooterComponent } from "./footer/footer.component";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { TestBed, waitForAsync } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { AppComponent } from "./app.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { beforeEach, describe, expect, it } from "vitest";
+
+import { provideHttpClient } from "@angular/common/http";
 import { provideHttpClientTesting } from "@angular/common/http/testing";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { provideZonelessChangeDetection } from "@angular/core";
+import { TestBed } from "@angular/core/testing";
+import { AppComponent } from "./app.component";
 
 describe("AppComponent", () => {
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-    declarations: [
-        AppComponent,
-        NavbarComponent,
-        FooterComponent,
-        MainComponent,
-        WeatherFormComponent
-    ],
-    imports: [RouterTestingModule,
-        ReactiveFormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-}).compileComponents();
-  }));
+      imports: [AppComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideZonelessChangeDetection(),
+      ],
+    }).compileComponents();
+  });
 
-  it("should create the app", () => {
+  it("should create the app", async () => {
     const fixture = TestBed.createComponent(AppComponent);
+    await fixture.whenStable();
+
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });

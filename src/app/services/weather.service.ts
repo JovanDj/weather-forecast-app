@@ -1,20 +1,19 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import {
   computed,
+  DOCUMENT,
   effect,
   inject,
   Injectable,
   RendererFactory2,
   signal,
-  DOCUMENT
 } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+
 import { Observable, Subject } from "rxjs";
 import { finalize, switchMap, tap } from "rxjs/operators";
 
-
 import { environment } from "src/environments/environment";
-
 import { API } from "../models/current.model";
 
 export type State = {

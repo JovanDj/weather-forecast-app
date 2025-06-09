@@ -15,39 +15,38 @@
     @if (vm().loaded) {
       <section>
         @if (vm().api; as currentWeather) {
-          <mat-card
-            matRipple
-            matRippleColor="primary"
-            >
+          <mat-card matRipple matRippleColor="primary">
             <mat-card-header>
               <img
                 mat-card-avatar
                 [src]="currentWeather.current.weather_icons[0]"
-                />
+              />
               <mat-card-title>
-                <a [href]="vm().locationWiki">{{ currentWeather.location.name }}</a
-                  >, {{ currentWeather.location.region }}</mat-card-title
-                  >
-                  <mat-card-subtitle>{{
-                    currentWeather.location.country
-                  }}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                  <mat-list>
-                    <mat-list-item
-                      >Temperature: {{ currentWeather.current.temperature }} °C
-                    </mat-list-item>
-                    <mat-list-item>
-                      Feels like: {{ currentWeather.current.feelslike }} °C
-                    </mat-list-item>
-                    <mat-list-item
-                      >Wind speed: {{ currentWeather.current.wind_speed }} km/h
-                    </mat-list-item>
-                  </mat-list>
-                </mat-card-content>
-              </mat-card>
-            }
-          </section>
+                <a [href]="vm().locationWiki">{{
+                  currentWeather.location.name
+                }}</a
+                >, {{ currentWeather.location.region }}</mat-card-title
+              >
+              <mat-card-subtitle>{{
+                currentWeather.location.country
+              }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-list>
+                <mat-list-item
+                  >Temperature: {{ currentWeather.current.temperature }} °C
+                </mat-list-item>
+                <mat-list-item>
+                  Feels like: {{ currentWeather.current.feelslike }} °C
+                </mat-list-item>
+                <mat-list-item
+                  >Wind speed: {{ currentWeather.current.wind_speed }} km/h
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+          </mat-card>
         }
-      </main>
+      </section>
     }
+  </main>
+}

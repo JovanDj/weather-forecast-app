@@ -1,5 +1,13 @@
-import { provideHttpClient } from "@angular/common/http";
-import { enableProdMode } from "@angular/core";
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from "@angular/common/http";
+import {
+  enableProdMode,
+  provideBrowserGlobalErrorListeners,
+  provideZonelessChangeDetection,
+} from "@angular/core";
 import { bootstrapApplication } from "@angular/platform-browser";
 
 import { AppComponent } from "./app/app.component";
@@ -10,5 +18,9 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [provideHttpClient()],
+  providers: [
+    provideHttpClient(withFetch(), withInterceptors([])),
+    provideZonelessChangeDetection(),
+    provideBrowserGlobalErrorListeners(),
+  ],
 });

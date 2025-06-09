@@ -1,39 +1,28 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Input,
-  Output,
+  input,
+  output,
 } from "@angular/core";
-
 
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
-    selector: "app-weather-form",
-    templateUrl: "./weather-form.component.html",
-    styleUrls: ["./weather-form.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatProgressSpinnerModule]
+  selector: "app-weather-form",
+  templateUrl: "./weather-form.component.html",
+  styleUrls: ["./weather-form.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [MatProgressSpinnerModule],
 })
 export class WeatherFormComponent {
-  @Input({ required: true })
-  locationDetected = false;
+  locationDetected = input(false, { transform: booleanAttribute });
+  error = input("");
+  loading = input(false, { transform: booleanAttribute });
+  locationDetectedMessage = input("");
 
-  @Input({ required: true })
-  error = "";
-
-  @Input({ required: true })
-  loading = false;
-
-  @Input({ required: true })
-  locationDetectedMessage = "";
-
-  @Output()
-  locationButtonClick = new EventEmitter();
-
-  @Output()
-  errorMessageClick = new EventEmitter();
+  locationButtonClick = output();
+  errorMessageClick = output();
 
   onLocationButtonClick() {
     this.locationButtonClick.emit();

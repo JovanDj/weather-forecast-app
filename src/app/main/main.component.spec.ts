@@ -1,30 +1,47 @@
-import { provideHttpClientTesting } from "@angular/common/http/testing";
-import { ReactiveFormsModule } from "@angular/forms";
-import { WeatherFormComponent } from "./weather-form/weather-form.component";
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { beforeEach, describe, expect, it } from "vitest";
 
+import { provideHttpClientTesting } from "@angular/common/http/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+
+import { provideHttpClient } from "@angular/common/http";
+import { DebugElement, provideZonelessChangeDetection } from "@angular/core";
+import { By } from "@angular/platform-browser";
+import { WeatherService } from "../services/weather.service";
 import { MainComponent } from "./main.component";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
+import { WeatherFormComponent } from "./weather-form/weather-form.component";
 
 describe("MainComponent", () => {
   let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-    declarations: [MainComponent, WeatherFormComponent],
-    imports: [ReactiveFormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-}).compileComponents();
-  }));
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [MainComponent, WeatherFormComponent],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        WeatherService,
+      ],
+    }).compileComponents();
+  });
+
+  beforeEach(async () => {
     fixture = TestBed.createComponent(MainComponent);
+
+    await fixture.whenStable();
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("shows default detect location button text", () => {
+    const debugElement: DebugElement = fixture.debugElement;
+    const locationButton = debugElement.query(By.css(".weather button"));
+    const nativeElement: HTMLElement = locationButton.nativeElement;
+
+    expect(nativeElement.textContent).toContain("Detect location");
   });
 });

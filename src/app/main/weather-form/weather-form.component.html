@@ -5,19 +5,19 @@
     color="primary"
     type="button"
     matRipple
-    [disabled]="locationDetected"
+    [disabled]="locationDetected()"
     (click)="onLocationButtonClick()"
-    >
-    {{ locationDetectedMessage }}
+  >
+    {{ locationDetectedMessage() }}
   </button>
 
-  @if (error) {
+  @if (error()) {
     <div (click)="onErrorMessageClick()">
-      {{ error }}
+      {{ error() }}
     </div>
   }
 </section>
 
-@if (loading) {
+@if (loading()) {
   <mat-spinner mode="indeterminate"></mat-spinner>
 }

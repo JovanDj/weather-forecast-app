@@ -1,26 +1,31 @@
-import { ReactiveFormsModule } from "@angular/forms";
-import { provideHttpClientTesting } from "@angular/common/http/testing";
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { beforeEach, describe, expect, it } from "vitest";
 
+import { provideHttpClientTesting } from "@angular/common/http/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+
+import { provideHttpClient } from "@angular/common/http";
+import { provideZonelessChangeDetection } from "@angular/core";
 import { WeatherFormComponent } from "./weather-form.component";
-import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 
 describe("WeatherFormComponent", () => {
   let component: WeatherFormComponent;
   let fixture: ComponentFixture<WeatherFormComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-    declarations: [WeatherFormComponent],
-    imports: [ReactiveFormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-}).compileComponents();
-  }));
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [WeatherFormComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideZonelessChangeDetection(),
+      ],
+    }).compileComponents();
+  });
+
+  beforeEach(async () => {
     fixture = TestBed.createComponent(WeatherFormComponent);
+    await fixture.whenStable();
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it("should create", () => {

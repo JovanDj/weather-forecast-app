@@ -1,21 +1,25 @@
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { beforeEach, describe, expect, it } from "vitest";
 
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+
+import { provideZonelessChangeDetection } from "@angular/core";
 import { NavbarComponent } from "./navbar.component";
 
 describe("NavbarComponent", () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [NavbarComponent]
-    }).compileComponents();
-  }));
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [NavbarComponent],
+      providers: [provideZonelessChangeDetection()],
+    }).compileComponents();
+  });
+
+  beforeEach(async () => {
     fixture = TestBed.createComponent(NavbarComponent);
+    await fixture.whenStable();
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it("should create", () => {

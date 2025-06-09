@@ -26,8 +26,7 @@
     "@angular/service-worker": "^20.0.2",
     "font-awesome": "^4.7.0",
     "rxjs": "^7.8.2",
-    "tslib": "^2.8.1",
-    "zone.js": "^0.15.1"
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^20.0.1",
@@ -36,9 +35,11 @@
     "@angular/language-service": "^20.0.2",
     "@types/node": "^22.15.30",
     "angular-cli-ghpages": "^0.5.3",
+    "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
-    "typescript": "~5.8.3"
+    "typescript": "~5.8.3",
+    "vitest": "^3.2.3"
   },
   "volta": {
     "node": "22.16.0"
