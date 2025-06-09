@@ -85,14 +85,14 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "weather-app:build:production"
+              "buildTarget": "weather-app:build:production"
             },
             "hmr": {
               "hmr": true,
-              "browserTarget": "weather-app:build:hmr"
+              "buildTarget": "weather-app:build:hmr"
             },
             "development": {
-              "browserTarget": "weather-app:build:development"
+              "buildTarget": "weather-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "weather-app:build"
+            "buildTarget": "weather-app:build"
           }
         },
         "test": {
