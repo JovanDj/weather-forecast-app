@@ -7,13 +7,17 @@
     matRipple
     [disabled]="locationDetected"
     (click)="onLocationButtonClick()"
-  >
+    >
     {{ locationDetectedMessage }}
   </button>
 
-  <div *ngIf="error" (click)="onErrorMessageClick()">
-    {{ error }}
-  </div>
+  @if (error) {
+    <div (click)="onErrorMessageClick()">
+      {{ error }}
+    </div>
+  }
 </section>
 
-<mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
+@if (loading) {
+  <mat-spinner mode="indeterminate"></mat-spinner>
+}

@@ -6,7 +6,7 @@ import {
   Output,
 } from "@angular/core";
 
-import { CommonModule } from "@angular/common";
+
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
@@ -14,7 +14,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     templateUrl: "./weather-form.component.html",
     styleUrls: ["./weather-form.component.scss"],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule, MatProgressSpinnerModule]
+    imports: [MatProgressSpinnerModule]
 })
 export class WeatherFormComponent {
   @Input({ required: true })
