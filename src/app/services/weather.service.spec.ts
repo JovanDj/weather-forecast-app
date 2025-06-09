@@ -1,13 +1,15 @@
-import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import { TestBed } from "@angular/core/testing";
 
 import { WeatherService } from "./weather.service";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 
 describe("WeatherService", () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
-    })
+    imports: [],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+})
   );
 
   it("should be created", () => {

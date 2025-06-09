@@ -1,9 +1,10 @@
-import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { provideHttpClientTesting } from "@angular/common/http/testing";
 import { ReactiveFormsModule } from "@angular/forms";
 import { WeatherFormComponent } from "./weather-form/weather-form.component";
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 
 import { MainComponent } from "./main.component";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 
 describe("MainComponent", () => {
   let component: MainComponent;
@@ -11,9 +12,10 @@ describe("MainComponent", () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, HttpClientTestingModule],
-      declarations: [MainComponent, WeatherFormComponent]
-    }).compileComponents();
+    declarations: [MainComponent, WeatherFormComponent],
+    imports: [ReactiveFormsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
   }));
 
   beforeEach(() => {
