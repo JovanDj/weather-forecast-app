@@ -4,7 +4,7 @@ import { provideHttpClientTesting } from "@angular/common/http/testing";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { provideHttpClient } from "@angular/common/http";
-import { DebugElement, provideZonelessChangeDetection } from "@angular/core";
+import { provideZonelessChangeDetection } from "@angular/core";
 import { By } from "@angular/platform-browser";
 import { WeatherService } from "../services/weather.service";
 import { MainComponent } from "./main.component";
@@ -38,8 +38,9 @@ describe("MainComponent", () => {
   });
 
   it("shows default detect location button text", () => {
-    const debugElement: DebugElement = fixture.debugElement;
-    const locationButton = debugElement.query(By.css(".weather button"));
+    const locationButton = fixture.debugElement.query(
+      By.css(".weather button"),
+    );
     const nativeElement: HTMLElement = locationButton.nativeElement;
 
     expect(nativeElement.textContent).toContain("Detect location");

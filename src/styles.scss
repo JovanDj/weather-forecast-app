@@ -1,10 +1,7 @@
-// @import 'variables';
-// @import '../node_modules/bootstrap/scss/bootstrap';
-// @import '../node_modules/font-awesome/scss/font-awesome';
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
-  background-image: url('assets/clouds.jpg');
+  background-image: url("assets/clouds.jpg");
   background-repeat: none;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -16,5 +13,5 @@ html {
 }
 
 body {
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

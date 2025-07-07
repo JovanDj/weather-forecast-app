@@ -13,7 +13,6 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Observable, Subject } from "rxjs";
 import { finalize, switchMap, tap } from "rxjs/operators";
 
-import { environment } from "src/environments/environment";
 import { API } from "../models/current.model";
 
 export type State = {
@@ -32,7 +31,7 @@ export class WeatherService {
   readonly #renderer = inject(RendererFactory2).createRenderer(null, null);
   readonly #body = inject(DOCUMENT).body;
 
-  readonly #currentUrl = `http://api.weatherstack.com/current?access_key=${environment.apiKey}`;
+  readonly #currentUrl = "http://api.weatherstack.com/current";
 
   readonly #state = signal<State>({
     api: {

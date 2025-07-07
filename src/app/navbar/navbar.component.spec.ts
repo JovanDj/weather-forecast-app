@@ -18,7 +18,6 @@ describe("NavbarComponent", () => {
 
   beforeEach(async () => {
     fixture = TestBed.createComponent(NavbarComponent);
-    await fixture.whenStable();
     component = fixture.componentInstance;
   });
 
