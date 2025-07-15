@@ -90,6 +90,8 @@ export class WeatherService {
     };
   });
 
+  readonly #isDay = computed(() => this.#state().api.current.is_day);
+
   readonly #detectLocation$ = new Subject<void>();
 
   constructor() {
@@ -102,8 +104,16 @@ export class WeatherService {
       .subscribe();
 
     effect(() => {
-      this.#changeBackground(this.#state().api.current.is_day);
+      this.#changeBackground(this.#isDay());
     });
+  }
+
+  detectLocation() {
+    this.#detectLocation$.next();
+  }
+
+  clearErrorMessage() {
+    this.#updateState({ error: "", locationDetected: false });
   }
 
   #getCurrentPosition$() {
@@ -133,19 +143,14 @@ export class WeatherService {
     });
   }
 
-  detectLocation() {
-    this.#detectLocation$.next();
-  }
-
-  clearErrorMessage() {
-    this.#updateState({ error: "" });
-  }
-
   #getCurrentWeather(q: string) {
     const params = new HttpParams().set("query", q);
 
+    this.#updateState({ loading: true });
+
     return this.#http.get<API>(this.#currentUrl, { params }).pipe(
       tap((api) => {
+        console.log(api.current.is_day);
         this.#updateState({ api, loaded: true });
       }),
       finalize(() => {

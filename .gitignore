@@ -228,3 +228,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/git,node,linux,windows,angular,visualstudiocode
+
+# stryker temp files
+.stryker-tmp

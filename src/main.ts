@@ -6,7 +6,6 @@ import {
 import {
   enableProdMode,
   provideBrowserGlobalErrorListeners,
-  provideZonelessChangeDetection,
 } from "@angular/core";
 import { bootstrapApplication } from "@angular/platform-browser";
 
@@ -20,7 +19,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(withFetch(), withInterceptors([])),
-    provideZonelessChangeDetection(),
+
     provideBrowserGlobalErrorListeners(),
   ],
 });

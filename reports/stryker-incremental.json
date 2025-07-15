@@ -1,0 +1,2716 @@
+{
+  "files": {
+    "src/app/interceptors/api-key.interceptor.ts": {
+      "language": "typescript",
+      "mutants": [
+        {
+          "id": "0",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "An error was thrown in afterAll\nTypeError: You provided 'undefined' where a stream was expected. You can provide an Observable, Promise, ReadableStream, Array, AsyncIterable, or Iterable.\n    at createInvalidObservableTypeError (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/throwUnobservableError.js:2:12)\n    at innerFrom (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/innerFrom.js:37:43)\n    at doInnerSub (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/mergeInternals.js:19:18)\n    at onNext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/mergeInternals.js:14:57)\n    at OperatorSubscriber._next (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/OperatorSubscriber.js:13:21)\n    at OperatorSubscriber.next (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:31:18)\n    at Observable._subscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/innerFrom.js:51:24)\n    at Observable._trySubscribe (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:37:25)\n    at cb (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Observable.js:31:30)\n    at errorContext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)",
+          "status": "RuntimeError",
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 2,
+              "line": 16
+            },
+            "start": {
+              "column": 68,
+              "line": 4
+            }
+          }
+        },
+        {
+          "id": "1",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "req.url.includes(\"api.weatherstack.com\")",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none. Requests received are: GET http://api.weatherstack.com/current?query=42,21.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.apply (src/app/interceptors/api-key.interceptor.spec.ts:39:28)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)\n    at ZoneImpl.run (node_modules/zone.js/fesm2015/zone.js:113:43)\n    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:216:38)\n    at UserContext.<anonymous> (node_modules/zone.js/fesm2015/zone-testing.js:234:32)\n    at <Jasmine>",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "2"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 48,
+              "line": 5
+            },
+            "start": {
+              "column": 7,
+              "line": 5
+            }
+          }
+        },
+        {
+          "id": "2",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none. Requests received are: GET http://api.weatherstack.com/current?query=42,21.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.apply (src/app/interceptors/api-key.interceptor.spec.ts:39:28)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)\n    at ZoneImpl.run (node_modules/zone.js/fesm2015/zone.js:113:43)\n    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:216:38)\n    at UserContext.<anonymous> (node_modules/zone.js/fesm2015/zone-testing.js:234:32)\n    at <Jasmine>",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "2"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 48,
+              "line": 5
+            },
+            "start": {
+              "column": 7,
+              "line": 5
+            }
+          }
+        },
+        {
+          "id": "3",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "statusReason": "Expected true to be false.\n    at <Jasmine>\n    at UserContext.apply (src/app/interceptors/api-key.interceptor.spec.ts:60:50)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [
+            "3"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 48,
+              "line": 5
+            },
+            "start": {
+              "column": 7,
+              "line": 5
+            }
+          }
+        },
+        {
+          "id": "4",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "Expected true to be false.\n    at <Jasmine>\n    at UserContext.apply (src/app/interceptors/api-key.interceptor.spec.ts:60:50)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [
+            "3"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 47,
+              "line": 5
+            },
+            "start": {
+              "column": 25,
+              "line": 5
+            }
+          }
+        },
+        {
+          "id": "5",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Expected true to be false.\n    at <Jasmine>\n    at UserContext.apply (src/app/interceptors/api-key.interceptor.spec.ts:60:50)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "3"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 7
+            },
+            "start": {
+              "column": 50,
+              "line": 5
+            }
+          }
+        },
+        {
+          "id": "6",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none. Requests received are: GET http://api.weatherstack.com/current?query=42,21.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.apply (src/app/interceptors/api-key.interceptor.spec.ts:39:28)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)\n    at ZoneImpl.run (node_modules/zone.js/fesm2015/zone.js:113:43)\n    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:216:38)\n    at UserContext.<anonymous> (node_modules/zone.js/fesm2015/zone-testing.js:234:32)\n    at <Jasmine>",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "2"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 13
+            },
+            "start": {
+              "column": 28,
+              "line": 9
+            }
+          }
+        },
+        {
+          "id": "7",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none. Requests received are: GET http://api.weatherstack.com/current?query=42,21.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.apply (src/app/interceptors/api-key.interceptor.spec.ts:39:28)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)\n    at ZoneImpl.run (node_modules/zone.js/fesm2015/zone.js:113:43)\n    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:216:38)\n    at UserContext.<anonymous> (node_modules/zone.js/fesm2015/zone-testing.js:234:32)\n    at <Jasmine>",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "2"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 12
+            },
+            "start": {
+              "column": 16,
+              "line": 10
+            }
+          }
+        }
+      ],
+      "source": "import { HttpInterceptorFn } from \"@angular/common/http\";\r\nimport { environment } from \"src/environments/environment\";\r\n\r\nexport const apiKeyInterceptor: HttpInterceptorFn = (req, next) => {\r\n  if (!req.url.includes(\"api.weatherstack.com\")) {\r\n    return next(req);\r\n  }\r\n\r\n  const cloned = req.clone({\r\n    setParams: {\r\n      access_key: environment.apiKey,\r\n    },\r\n  });\r\n\r\n  return next(cloned);\r\n};\r\n"
+    },
+    "src/app/main/main-routing.module.ts": {
+      "language": "typescript",
+      "mutants": [
+        {
+          "id": "8",
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[\"Stryker was here\"]",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 26,
+              "line": 4
+            },
+            "start": {
+              "column": 24,
+              "line": 4
+            }
+          }
+        }
+      ],
+      "source": "import { NgModule } from \"@angular/core\";\nimport { Routes, RouterModule } from \"@angular/router\";\n\nconst routes: Routes = [];\n\n@NgModule({\n  imports: [RouterModule.forChild(routes)],\n  exports: [RouterModule]\n})\nexport class MainRoutingModule {}\n"
+    },
+    "src/app/main/main.component.ts": {
+      "language": "typescript",
+      "mutants": [
+        {
+          "id": "9",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 28
+            },
+            "start": {
+              "column": 27,
+              "line": 26
+            }
+          }
+        },
+        {
+          "id": "10",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 32
+            },
+            "start": {
+              "column": 25,
+              "line": 30
+            }
+          }
+        }
+      ],
+      "source": "\nimport { ChangeDetectionStrategy, Component, inject } from \"@angular/core\";\nimport { MatCardModule } from \"@angular/material/card\";\nimport { MatRippleModule } from \"@angular/material/core\";\nimport { MatListModule } from \"@angular/material/list\";\n\nimport { WeatherService } from \"../services/weather.service\";\nimport { WeatherFormComponent } from \"./weather-form/weather-form.component\";\n\n@Component({\n    selector: \"app-main\",\n    templateUrl: \"./main.component.html\",\n    styleUrls: [\"./main.component.scss\"],\n    changeDetection: ChangeDetectionStrategy.OnPush,\n    imports: [\n    WeatherFormComponent,\n    MatCardModule,\n    MatRippleModule,\n    MatListModule\n]\n})\nexport class MainComponent {\n  readonly #weatherService = inject(WeatherService);\n  readonly vm = this.#weatherService.weather;\n\n  onLocationButtonClick() {\n    this.#weatherService.detectLocation();\n  }\n\n  onErrorMessageClick() {\n    this.#weatherService.clearErrorMessage();\n  }\n}\n"
+    },
+    "src/app/main/weather-form/weather-form.component.ts": {
+      "language": "typescript",
+      "mutants": [
+        {
+          "id": "11",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 33,
+              "line": 19
+            },
+            "start": {
+              "column": 28,
+              "line": 19
+            }
+          }
+        },
+        {
+          "id": "12",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Angular signal based input, model and output functions configuration object cannot be mutated as that causes issues with the ivy compiler.",
+          "status": "Ignored",
+          "static": false,
+          "location": {
+            "end": {
+              "column": 66,
+              "line": 19
+            },
+            "start": {
+              "column": 35,
+              "line": 19
+            }
+          }
+        },
+        {
+          "id": "13",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 19,
+              "line": 20
+            },
+            "start": {
+              "column": 17,
+              "line": 20
+            }
+          }
+        },
+        {
+          "id": "14",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 24,
+              "line": 21
+            },
+            "start": {
+              "column": 19,
+              "line": 21
+            }
+          }
+        },
+        {
+          "id": "15",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Angular signal based input, model and output functions configuration object cannot be mutated as that causes issues with the ivy compiler.",
+          "status": "Ignored",
+          "static": false,
+          "location": {
+            "end": {
+              "column": 57,
+              "line": 21
+            },
+            "start": {
+              "column": 26,
+              "line": 21
+            }
+          }
+        },
+        {
+          "id": "16",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 37,
+              "line": 22
+            },
+            "start": {
+              "column": 35,
+              "line": 22
+            }
+          }
+        },
+        {
+          "id": "17",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 29
+            },
+            "start": {
+              "column": 27,
+              "line": 27
+            }
+          }
+        },
+        {
+          "id": "18",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 33
+            },
+            "start": {
+              "column": 25,
+              "line": 31
+            }
+          }
+        }
+      ],
+      "source": "import {\n  booleanAttribute,\n  ChangeDetectionStrategy,\n  Component,\n  input,\n  output,\n} from \"@angular/core\";\n\nimport { MatProgressSpinnerModule } from \"@angular/material/progress-spinner\";\n\n@Component({\n  selector: \"app-weather-form\",\n  templateUrl: \"./weather-form.component.html\",\n  styleUrls: [\"./weather-form.component.scss\"],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  imports: [MatProgressSpinnerModule],\n})\nexport class WeatherFormComponent {\n  locationDetected = input(false, { transform: booleanAttribute });\n  error = input(\"\");\n  loading = input(false, { transform: booleanAttribute });\n  locationDetectedMessage = input(\"\");\n\n  locationButtonClick = output();\n  errorMessageClick = output();\n\n  onLocationButtonClick() {\n    this.locationButtonClick.emit();\n  }\n\n  onErrorMessageClick() {\n    this.errorMessageClick.emit();\n  }\n}\n"
+    },
+    "src/app/services/weather.service.ts": {
+      "language": "typescript",
+      "mutants": [
+        {
+          "id": "19",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none. Requests received are: GET ?query=42,21.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:119:22)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)\n    at executor (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)\n    at new ZoneAwarePromise (node_modules/zone.js/fesm2015/zone.js:2701:25)\n    at UserContext.apply (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:14:1)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)",
+          "status": "Killed",
+          "testsCompleted": 5,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 63,
+              "line": 34
+            },
+            "start": {
+              "column": 26,
+              "line": 34
+            }
+          }
+        },
+        {
+          "id": "20",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "TypeError: Cannot read properties of undefined (reading 'location')\n    at Object.computation (src/app/services/weather.service.ts:121:33)\n    at Object.producerRecomputeValue (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:411:33)\n    at producerUpdateValueVersion (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:139:10)\n    at MainComponent.computed [as vm] (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:351:9)\n    at templateFn (ng:///MainComponent.js:96:47)\n    at executeTemplate (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:7140:9)\n    at refreshView (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:8888:13)\n    at detectChangesInView (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:9108:9)\n    at detectChangesInViewIfAttached (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:9068:5)\n    at detectChangesInComponent (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:9056:5)",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [
+            "0",
+            "4"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 78
+            },
+            "start": {
+              "column": 35,
+              "line": 36
+            }
+          }
+        },
+        {
+          "id": "21",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "TypeError: Cannot read properties of undefined (reading 'name')\n    at Object.computation (src/app/services/weather.service.ts:121:42)\n    at Object.producerRecomputeValue (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:411:33)\n    at producerUpdateValueVersion (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:139:10)\n    at MainComponent.computed [as vm] (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:351:9)\n    at templateFn (ng:///MainComponent.js:96:47)\n    at executeTemplate (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:7140:9)\n    at refreshView (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:8888:13)\n    at detectChangesInView (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:9108:9)\n    at detectChangesInViewIfAttached (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:9068:5)\n    at detectChangesInComponent (node_modules/@angular/core/fesm2022/debug_node-JnOYh9kg.mjs:9056:5)",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [
+            "0",
+            "4"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 73
+            },
+            "start": {
+              "column": 10,
+              "line": 37
+            }
+          }
+        },
+        {
+          "id": "22",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Expected $.api.current to have properties\n    cloudcover: 0\n    feelslike: 0\n    humidity: 0\n    is_day: ''\n    observation_time: ''\n    precip: 0\n    pressure: 0\n    temperature: 0\n    uv_index: 0\n    visibility: 0\n    weather_code: 0\n    weather_descriptions: [  ]\n    weather_icons: [  ]\n    wind_degree: 0\n    wind_dir: ''\n    wind_speed: 0\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 55
+            },
+            "start": {
+              "column": 16,
+              "line": 38
+            }
+          }
+        },
+        {
+          "id": "23",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.current.is_day = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 19,
+              "line": 42
+            },
+            "start": {
+              "column": 17,
+              "line": 42
+            }
+          }
+        },
+        {
+          "id": "24",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.current.observation_time = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 29,
+              "line": 43
+            },
+            "start": {
+              "column": 27,
+              "line": 43
+            }
+          }
+        },
+        {
+          "id": "25",
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[\"Stryker was here\"]",
+          "statusReason": "Expected $.api.current.weather_descriptions.length = 1 to equal 0.\nUnexpected $.api.current.weather_descriptions[0] = 'Stryker was here' in array.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 33,
+              "line": 50
+            },
+            "start": {
+              "column": 31,
+              "line": 50
+            }
+          }
+        },
+        {
+          "id": "26",
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[\"Stryker was here\"]",
+          "statusReason": "Expected $.api.current.weather_icons.length = 1 to equal 0.\nUnexpected $.api.current.weather_icons[0] = 'Stryker was here' in array.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 26,
+              "line": 51
+            },
+            "start": {
+              "column": 24,
+              "line": 51
+            }
+          }
+        },
+        {
+          "id": "27",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.current.wind_dir = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 21,
+              "line": 53
+            },
+            "start": {
+              "column": 19,
+              "line": 53
+            }
+          }
+        },
+        {
+          "id": "28",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Expected $.api.location to have properties\n    country: ''\n    lat: ''\n    localtime: ''\n    localtime_epoch: 0\n    lon: ''\n    name: ''\n    region: ''\n    timezone_id: ''\n    utc_offset: ''\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 66
+            },
+            "start": {
+              "column": 17,
+              "line": 56
+            }
+          }
+        },
+        {
+          "id": "29",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.location.country = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 57
+            },
+            "start": {
+              "column": 18,
+              "line": 57
+            }
+          }
+        },
+        {
+          "id": "30",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.location.lat = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 16,
+              "line": 58
+            },
+            "start": {
+              "column": 14,
+              "line": 58
+            }
+          }
+        },
+        {
+          "id": "31",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.location.localtime = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 22,
+              "line": 59
+            },
+            "start": {
+              "column": 20,
+              "line": 59
+            }
+          }
+        },
+        {
+          "id": "32",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.location.lon = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 16,
+              "line": 61
+            },
+            "start": {
+              "column": 14,
+              "line": 61
+            }
+          }
+        },
+        {
+          "id": "33",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.location.name = 'Stryker was here!' to equal ''.\nExpected $.locationWiki = 'https://en.wikipedia.org/wiki/Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 17,
+              "line": 62
+            },
+            "start": {
+              "column": 15,
+              "line": 62
+            }
+          }
+        },
+        {
+          "id": "34",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.location.region = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 19,
+              "line": 63
+            },
+            "start": {
+              "column": 17,
+              "line": 63
+            }
+          }
+        },
+        {
+          "id": "35",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.location.timezone_id = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 24,
+              "line": 64
+            },
+            "start": {
+              "column": 22,
+              "line": 64
+            }
+          }
+        },
+        {
+          "id": "36",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.location.utc_offset = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 65
+            },
+            "start": {
+              "column": 21,
+              "line": 65
+            }
+          }
+        },
+        {
+          "id": "37",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Expected $.api.request to have properties\n    language: ''\n    query: ''\n    type: ''\n    unit: ''\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 72
+            },
+            "start": {
+              "column": 16,
+              "line": 67
+            }
+          }
+        },
+        {
+          "id": "38",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.request.language = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 21,
+              "line": 68
+            },
+            "start": {
+              "column": 19,
+              "line": 68
+            }
+          }
+        },
+        {
+          "id": "39",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.request.query = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 18,
+              "line": 69
+            },
+            "start": {
+              "column": 16,
+              "line": 69
+            }
+          }
+        },
+        {
+          "id": "40",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.request.type = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 17,
+              "line": 70
+            },
+            "start": {
+              "column": 15,
+              "line": 70
+            }
+          }
+        },
+        {
+          "id": "41",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.api.request.unit = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 17,
+              "line": 71
+            },
+            "start": {
+              "column": 15,
+              "line": 71
+            }
+          }
+        },
+        {
+          "id": "42",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "statusReason": "Expected $.loading = true to equal false.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 19,
+              "line": 74
+            },
+            "start": {
+              "column": 14,
+              "line": 74
+            }
+          }
+        },
+        {
+          "id": "43",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "statusReason": "Expected $.loaded = true to equal false.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 18,
+              "line": 75
+            },
+            "start": {
+              "column": 13,
+              "line": 75
+            }
+          }
+        },
+        {
+          "id": "44",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "statusReason": "Expected ' Location detected! ' to contain 'Detect location'.\n    at <Jasmine>\n    at UserContext.apply (src/app/main/main.component.spec.ts:43:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 3,
+          "static": true,
+          "killedBy": [
+            "5"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 76
+            },
+            "start": {
+              "column": 23,
+              "line": 76
+            }
+          }
+        },
+        {
+          "id": "45",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.error = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 14,
+              "line": 77
+            },
+            "start": {
+              "column": 12,
+              "line": 77
+            }
+          }
+        },
+        {
+          "id": "46",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "TypeError: Cannot read properties of null (reading 'nativeElement')\n    at UserContext.apply (src/app/main/main.component.spec.ts:41:55)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)\n    at ZoneImpl.run (node_modules/zone.js/fesm2015/zone.js:113:43)\n    at runInTestZone (node_modules/zone.js/fesm2015/zone-testing.js:216:38)\n    at UserContext.<anonymous> (node_modules/zone.js/fesm2015/zone-testing.js:234:32)\n    at <Jasmine>",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "5",
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 91
+            },
+            "start": {
+              "column": 37,
+              "line": 80
+            }
+          }
+        },
+        {
+          "id": "47",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Expected '  ' to contain 'Detect location'.\n    at <Jasmine>\n    at UserContext.apply (src/app/main/main.component.spec.ts:43:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 3,
+          "static": true,
+          "killedBy": [
+            "5"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 90
+            },
+            "start": {
+              "column": 12,
+              "line": 82
+            }
+          }
+        },
+        {
+          "id": "48",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 31,
+              "line": 85
+            },
+            "start": {
+              "column": 11,
+              "line": 85
+            }
+          }
+        },
+        {
+          "id": "49",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "Expected '  ' to contain 'Detect location'.\n    at <Jasmine>\n    at UserContext.apply (src/app/main/main.component.spec.ts:43:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 3,
+          "static": true,
+          "killedBy": [
+            "5"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 86
+            },
+            "start": {
+              "column": 11,
+              "line": 86
+            }
+          }
+        },
+        {
+          "id": "50",
+          "mutatorName": "StringLiteral",
+          "replacement": "``",
+          "statusReason": "Expected '' to be 'https://en.wikipedia.org/wiki/Belgrade'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:131:44)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "10"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 69,
+              "line": 88
+            },
+            "start": {
+              "column": 11,
+              "line": 88
+            }
+          }
+        },
+        {
+          "id": "51",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected $.locationWiki = 'Stryker was here!' to equal ''.\n    at <Jasmine>\n    at UserContext.apply (src/app/services/weather.service.spec.ts:66:31)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:397:34)",
+          "status": "Killed",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [
+            "7"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 13,
+              "line": 89
+            },
+            "start": {
+              "column": 11,
+              "line": 89
+            }
+          }
+        },
+        {
+          "id": "52",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:119:22)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)\n    at executor (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)\n    at new ZoneAwarePromise (node_modules/zone.js/fesm2015/zone.js:2701:25)\n    at UserContext.apply (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:14:1)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)",
+          "status": "Killed",
+          "testsCompleted": 5,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 107
+            },
+            "start": {
+              "column": 17,
+              "line": 95
+            }
+          }
+        },
+        {
+          "id": "53",
+          "mutatorName": "ArrowFunction",
+          "replacement": "() => undefined",
+          "statusReason": "An error was thrown in afterAll\nTypeError: You provided 'undefined' where a stream was expected. You can provide an Observable, Promise, ReadableStream, Array, AsyncIterable, or Iterable.\n    at createInvalidObservableTypeError (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/throwUnobservableError.js:2:12)\n    at innerFrom (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/innerFrom.js:37:43)\n    at onNext (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/switchMap.js:14:22)\n    at OperatorSubscriber._next (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/OperatorSubscriber.js:13:21)\n    at OperatorSubscriber.next (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:31:18)\n    at cb (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subject.js:34:30)\n    at errorContext (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)\n    at Subject.next (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subject.js:27:21)\n    at WeatherService.detectLocation (http://localhost:9876/_karma_webpack_/webpack:/src/app/services/weather.service.ts:201:29)\n    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/webpack:/src/app/services/weather.service.spec.ts:100:13)",
+          "status": "RuntimeError",
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 98
+            },
+            "start": {
+              "column": 19,
+              "line": 98
+            }
+          }
+        },
+        {
+          "id": "54",
+          "mutatorName": "ArrowFunction",
+          "replacement": "() => undefined",
+          "statusReason": "An error was thrown in afterAll\nTypeError: You provided 'undefined' where a stream was expected. You can provide an Observable, Promise, ReadableStream, Array, AsyncIterable, or Iterable.\n    at createInvalidObservableTypeError (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/throwUnobservableError.js:2:12)\n    at innerFrom (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/innerFrom.js:37:43)\n    at onNext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/switchMap.js:14:22)\n    at OperatorSubscriber._next (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/OperatorSubscriber.js:13:21)\n    at OperatorSubscriber.next (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:31:18)\n    at onNext (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/switchMap.js:14:144)\n    at OperatorSubscriber._next (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/OperatorSubscriber.js:13:21)\n    at OperatorSubscriber.next (http://localhost:9877/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:31:18)\n    at success (http://localhost:9877/_karma_webpack_/webpack:/src/app/services/weather.service.ts:175:24)\n    at Geolocation.<anonymous> (http://localhost:9877/_karma_webpack_/webpack:/src/app/services/weather.service.spec.ts:137:7)",
+          "status": "RuntimeError",
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 99
+            },
+            "start": {
+              "column": 19,
+              "line": 99
+            }
+          }
+        },
+        {
+          "id": "55",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 106
+            },
+            "start": {
+              "column": 18,
+              "line": 104
+            }
+          }
+        },
+        {
+          "id": "56",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "An error was thrown in afterAll\nTypeError: You provided 'undefined' where a stream was expected. You can provide an Observable, Promise, ReadableStream, Array, AsyncIterable, or Iterable.\n    at createInvalidObservableTypeError (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/throwUnobservableError.js:2:12)\n    at innerFrom (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/observable/innerFrom.js:37:43)\n    at onNext (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/switchMap.js:14:22)\n    at OperatorSubscriber._next (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/operators/OperatorSubscriber.js:13:21)\n    at OperatorSubscriber.next (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subscriber.js:31:18)\n    at cb (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subject.js:34:30)\n    at errorContext (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/util/errorContext.js:19:9)\n    at Subject.next (http://localhost:9876/_karma_webpack_/webpack:/node_modules/rxjs/dist/esm/internal/Subject.js:27:21)\n    at WeatherService.detectLocation (http://localhost:9876/_karma_webpack_/webpack:/src/app/services/weather.service.ts:201:29)\n    at UserContext.<anonymous> (http://localhost:9876/_karma_webpack_/webpack:/src/app/services/weather.service.spec.ts:117:13)",
+          "status": "RuntimeError",
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 134
+            },
+            "start": {
+              "column": 26,
+              "line": 109
+            }
+          }
+        },
+        {
+          "id": "57",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Expected '' to be 'Permission denied'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:40:37)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 133
+            },
+            "start": {
+              "column": 49,
+              "line": 110
+            }
+          }
+        },
+        {
+          "id": "58",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "navigator.geolocation",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:119:22)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)\n    at executor (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)\n    at new ZoneAwarePromise (node_modules/zone.js/fesm2015/zone.js:2701:25)\n    at UserContext.apply (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:14:1)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 33,
+              "line": 111
+            },
+            "start": {
+              "column": 11,
+              "line": 111
+            }
+          }
+        },
+        {
+          "id": "59",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "statusReason": "Expected 'Geolocation not supported' to be 'Permission denied'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:40:37)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 33,
+              "line": 111
+            },
+            "start": {
+              "column": 11,
+              "line": 111
+            }
+          }
+        },
+        {
+          "id": "60",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Survived",
+          "testsCompleted": 0,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 33,
+              "line": 111
+            },
+            "start": {
+              "column": 11,
+              "line": 111
+            }
+          }
+        },
+        {
+          "id": "61",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 118
+            },
+            "start": {
+              "column": 35,
+              "line": 111
+            }
+          }
+        },
+        {
+          "id": "62",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 115
+            },
+            "start": {
+              "column": 27,
+              "line": 112
+            }
+          }
+        },
+        {
+          "id": "63",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 45,
+              "line": 113
+            },
+            "start": {
+              "column": 18,
+              "line": 113
+            }
+          }
+        },
+        {
+          "id": "64",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 114
+            },
+            "start": {
+              "column": 29,
+              "line": 114
+            }
+          }
+        },
+        {
+          "id": "65",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 126
+            },
+            "start": {
+              "column": 23,
+              "line": 121
+            }
+          }
+        },
+        {
+          "id": "66",
+          "mutatorName": "StringLiteral",
+          "replacement": "``",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none. Requests received are: GET http://api.weatherstack.com/current?query=.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:119:22)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)\n    at executor (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)\n    at new ZoneAwarePromise (node_modules/zone.js/fesm2015/zone.js:2701:25)\n    at UserContext.apply (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:14:1)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "10"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 79,
+              "line": 122
+            },
+            "start": {
+              "column": 21,
+              "line": 122
+            }
+          }
+        },
+        {
+          "id": "67",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 70,
+              "line": 123
+            },
+            "start": {
+              "column": 29,
+              "line": 123
+            }
+          }
+        },
+        {
+          "id": "68",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "statusReason": "Expected false to be true.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:129:48)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1), Expected 'Detect location' to be 'Location detected!'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:134:55)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "10"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 53,
+              "line": 123
+            },
+            "start": {
+              "column": 49,
+              "line": 123
+            }
+          }
+        },
+        {
+          "id": "69",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 68,
+              "line": 123
+            },
+            "start": {
+              "column": 64,
+              "line": 123
+            }
+          }
+        },
+        {
+          "id": "70",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Expected '' to be 'Permission denied'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:40:37)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 130
+            },
+            "start": {
+              "column": 20,
+              "line": 127
+            }
+          }
+        },
+        {
+          "id": "71",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 78,
+              "line": 128
+            },
+            "start": {
+              "column": 29,
+              "line": 128
+            }
+          }
+        },
+        {
+          "id": "72",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 76,
+              "line": 128
+            },
+            "start": {
+              "column": 71,
+              "line": 128
+            }
+          }
+        },
+        {
+          "id": "73",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 37,
+              "line": 131
+            },
+            "start": {
+              "column": 9,
+              "line": 131
+            }
+          }
+        },
+        {
+          "id": "74",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "status": "Survived",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 35,
+              "line": 131
+            },
+            "start": {
+              "column": 31,
+              "line": 131
+            }
+          }
+        },
+        {
+          "id": "75",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:119:22)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)\n    at executor (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)\n    at new ZoneAwarePromise (node_modules/zone.js/fesm2015/zone.js:2701:25)\n    at UserContext.apply (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:14:1)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 138
+            },
+            "start": {
+              "column": 20,
+              "line": 136
+            }
+          }
+        },
+        {
+          "id": "76",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Expected 'Permission denied' to be ''.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:95:37)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 142
+            },
+            "start": {
+              "column": 23,
+              "line": 140
+            }
+          }
+        },
+        {
+          "id": "77",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Expected 'Permission denied' to be ''.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:95:37)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 61,
+              "line": 141
+            },
+            "start": {
+              "column": 23,
+              "line": 141
+            }
+          }
+        },
+        {
+          "id": "78",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "statusReason": "Expected 'Stryker was here!' to be ''.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:43:37)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 141
+            },
+            "start": {
+              "column": 32,
+              "line": 141
+            }
+          }
+        },
+        {
+          "id": "79",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "statusReason": "Expected true to be false.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:96:48)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 59,
+              "line": 141
+            },
+            "start": {
+              "column": 54,
+              "line": 141
+            }
+          }
+        },
+        {
+          "id": "80",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 157
+            },
+            "start": {
+              "column": 33,
+              "line": 144
+            }
+          }
+        },
+        {
+          "id": "81",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "statusReason": "Error: Expected one matching request for criteria \"Match by function: \", found none. Requests received are: GET http://api.weatherstack.com/current?=42,21.\n    at HttpClientTestingBackend.expectOne (node_modules/@angular/common/fesm2022/http/testing.mjs:276:19)\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:119:22)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)\n    at executor (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)\n    at new ZoneAwarePromise (node_modules/zone.js/fesm2015/zone.js:2701:25)\n    at UserContext.apply (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:14:1)\n    at _ZoneDelegate.invoke (node_modules/zone.js/fesm2015/zone.js:398:28)\n    at ProxyZoneSpec.onInvoke (node_modules/zone.js/fesm2015/zone-testing.js:2132:39)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "10"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 48,
+              "line": 145
+            },
+            "start": {
+              "column": 41,
+              "line": 145
+            }
+          }
+        },
+        {
+          "id": "82",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 40,
+              "line": 147
+            },
+            "start": {
+              "column": 23,
+              "line": 147
+            }
+          }
+        },
+        {
+          "id": "83",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 38,
+              "line": 147
+            },
+            "start": {
+              "column": 34,
+              "line": 147
+            }
+          }
+        },
+        {
+          "id": "84",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 60,
+              "line": 149
+            },
+            "start": {
+              "column": 50,
+              "line": 149
+            }
+          }
+        },
+        {
+          "id": "85",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 152
+            },
+            "start": {
+              "column": 20,
+              "line": 150
+            }
+          }
+        },
+        {
+          "id": "86",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "Expected '' to be 'Serbia'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:128:52)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1), Expected false to be true.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:130:38)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1), Expected '' to be 'https://en.wikipedia.org/wiki/Belgrade'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:131:44)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "10"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 48,
+              "line": 151
+            },
+            "start": {
+              "column": 27,
+              "line": 151
+            }
+          }
+        },
+        {
+          "id": "87",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "statusReason": "Expected false to be true.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:130:38)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "10"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 46,
+              "line": 151
+            },
+            "start": {
+              "column": 42,
+              "line": 151
+            }
+          }
+        },
+        {
+          "id": "88",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 8,
+              "line": 155
+            },
+            "start": {
+              "column": 22,
+              "line": 153
+            }
+          }
+        },
+        {
+          "id": "89",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 45,
+              "line": 154
+            },
+            "start": {
+              "column": 27,
+              "line": 154
+            }
+          }
+        },
+        {
+          "id": "90",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 43,
+              "line": 154
+            },
+            "start": {
+              "column": 38,
+              "line": 154
+            }
+          }
+        },
+        {
+          "id": "91",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 181
+            },
+            "start": {
+              "column": 54,
+              "line": 159
+            }
+          }
+        },
+        {
+          "id": "92",
+          "mutatorName": "BooleanLiteral",
+          "replacement": "isDay",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 15,
+              "line": 160
+            },
+            "start": {
+              "column": 9,
+              "line": 160
+            }
+          }
+        },
+        {
+          "id": "93",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 15,
+              "line": 160
+            },
+            "start": {
+              "column": 9,
+              "line": 160
+            }
+          }
+        },
+        {
+          "id": "94",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Survived",
+          "testsCompleted": 4,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 15,
+              "line": 160
+            },
+            "start": {
+              "column": 9,
+              "line": 160
+            }
+          }
+        },
+        {
+          "id": "95",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 3,
+          "static": true,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 162
+            },
+            "start": {
+              "column": 17,
+              "line": 160
+            }
+          }
+        },
+        {
+          "id": "96",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 164
+            },
+            "start": {
+              "column": 9,
+              "line": 164
+            }
+          }
+        },
+        {
+          "id": "97",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 164
+            },
+            "start": {
+              "column": 9,
+              "line": 164
+            }
+          }
+        },
+        {
+          "id": "98",
+          "mutatorName": "EqualityOperator",
+          "replacement": "isDay === \"no\"",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 164
+            },
+            "start": {
+              "column": 9,
+              "line": 164
+            }
+          }
+        },
+        {
+          "id": "99",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 164
+            },
+            "start": {
+              "column": 19,
+              "line": 164
+            }
+          }
+        },
+        {
+          "id": "100",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 171
+            },
+            "start": {
+              "column": 25,
+              "line": 164
+            }
+          }
+        },
+        {
+          "id": "101",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 27,
+              "line": 167
+            },
+            "start": {
+              "column": 9,
+              "line": 167
+            }
+          }
+        },
+        {
+          "id": "102",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 32,
+              "line": 168
+            },
+            "start": {
+              "column": 9,
+              "line": 168
+            }
+          }
+        },
+        {
+          "id": "103",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 57,
+              "line": 170
+            },
+            "start": {
+              "column": 50,
+              "line": 170
+            }
+          }
+        },
+        {
+          "id": "104",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Survived",
+          "testsCompleted": 1,
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 65,
+              "line": 170
+            },
+            "start": {
+              "column": 59,
+              "line": 170
+            }
+          }
+        },
+        {
+          "id": "105",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 173
+            },
+            "start": {
+              "column": 9,
+              "line": 173
+            }
+          }
+        },
+        {
+          "id": "106",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 173
+            },
+            "start": {
+              "column": 9,
+              "line": 173
+            }
+          }
+        },
+        {
+          "id": "107",
+          "mutatorName": "EqualityOperator",
+          "replacement": "isDay !== \"no\"",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 173
+            },
+            "start": {
+              "column": 9,
+              "line": 173
+            }
+          }
+        },
+        {
+          "id": "108",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 23,
+              "line": 173
+            },
+            "start": {
+              "column": 19,
+              "line": 173
+            }
+          }
+        },
+        {
+          "id": "109",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 180
+            },
+            "start": {
+              "column": 25,
+              "line": 173
+            }
+          }
+        },
+        {
+          "id": "110",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 27,
+              "line": 176
+            },
+            "start": {
+              "column": 9,
+              "line": 176
+            }
+          }
+        },
+        {
+          "id": "111",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 177
+            },
+            "start": {
+              "column": 9,
+              "line": 177
+            }
+          }
+        },
+        {
+          "id": "112",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 57,
+              "line": 179
+            },
+            "start": {
+              "column": 50,
+              "line": 179
+            }
+          }
+        },
+        {
+          "id": "113",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "NoCoverage",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 65,
+              "line": 179
+            },
+            "start": {
+              "column": 59,
+              "line": 179
+            }
+          }
+        },
+        {
+          "id": "114",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "Expected '' to be 'Serbia'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:128:52)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1), Expected false to be true.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:129:48)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1), Expected false to be true.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:130:38)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1), Expected '' to be 'https://en.wikipedia.org/wiki/Belgrade'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:131:44)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1), Expected 'Detect location' to be 'Location detected!'.\n    at <Jasmine>\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:134:55)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 185
+            },
+            "start": {
+              "column": 39,
+              "line": 183
+            }
+          }
+        },
+        {
+          "id": "115",
+          "mutatorName": "ArrowFunction",
+          "replacement": "() => undefined",
+          "statusReason": "TypeError: Cannot read properties of undefined (reading 'locationDetected')\n    at Object.computation (src/app/services/weather.service.ts:120:40)\n    at Object.producerRecomputeValue (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:411:33)\n    at producerUpdateValueVersion (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:139:10)\n    at WeatherService.weather (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:351:9)\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:128:20)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)\n    at executor (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)\n    at new ZoneAwarePromise (node_modules/zone.js/fesm2015/zone.js:2701:25)",
+          "status": "Killed",
+          "testsCompleted": 2,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 59,
+              "line": 184
+            },
+            "start": {
+              "column": 24,
+              "line": 184
+            }
+          }
+        },
+        {
+          "id": "116",
+          "mutatorName": "ObjectLiteral",
+          "replacement": "{}",
+          "statusReason": "TypeError: Cannot read properties of undefined (reading 'location')\n    at Object.computation (src/app/services/weather.service.ts:121:33)\n    at Object.producerRecomputeValue (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:411:33)\n    at producerUpdateValueVersion (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:139:10)\n    at WeatherService.weather (node_modules/@angular/core/fesm2022/signal-nCiHhWf6.mjs:351:9)\n    at UserContext.<anonymous> (src/app/services/weather.service.spec.ts:40:20)\n    at Generator.next (<anonymous>)\n    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)\n    at _next (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:17:1)\n    at executor (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)\n    at new ZoneAwarePromise (node_modules/zone.js/fesm2015/zone.js:2701:25)",
+          "status": "Killed",
+          "testsCompleted": 1,
+          "static": true,
+          "killedBy": [
+            "9"
+          ],
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 58,
+              "line": 184
+            },
+            "start": {
+              "column": 36,
+              "line": 184
+            }
+          }
+        }
+      ],
+      "source": "import { HttpClient, HttpParams } from \"@angular/common/http\";\nimport {\n  computed,\n  DOCUMENT,\n  effect,\n  inject,\n  Injectable,\n  RendererFactory2,\n  signal,\n} from \"@angular/core\";\nimport { takeUntilDestroyed } from \"@angular/core/rxjs-interop\";\n\nimport { Observable, Subject } from \"rxjs\";\nimport { finalize, switchMap, tap } from \"rxjs/operators\";\n\nimport { API } from \"../models/current.model\";\n\nexport type State = {\n  api: API;\n  loading: boolean;\n  loaded: boolean;\n  locationDetected: boolean;\n  error: string;\n};\n\n@Injectable({\n  providedIn: \"root\",\n})\nexport class WeatherService {\n  readonly #http = inject(HttpClient);\n  readonly #renderer = inject(RendererFactory2).createRenderer(null, null);\n  readonly #body = inject(DOCUMENT).body;\n\n  readonly #currentUrl = \"http://api.weatherstack.com/current\";\n\n  readonly #state = signal<State>({\n    api: {\n      current: {\n        cloudcover: 0,\n        feelslike: 0,\n        humidity: 0,\n        is_day: \"\",\n        observation_time: \"\",\n        precip: 0,\n        pressure: 0,\n        temperature: 0,\n        uv_index: 0,\n        visibility: 0,\n        weather_code: 0,\n        weather_descriptions: [],\n        weather_icons: [],\n        wind_degree: 0,\n        wind_dir: \"\",\n        wind_speed: 0,\n      },\n      location: {\n        country: \"\",\n        lat: \"\",\n        localtime: \"\",\n        localtime_epoch: 0,\n        lon: \"\",\n        name: \"\",\n        region: \"\",\n        timezone_id: \"\",\n        utc_offset: \"\",\n      },\n      request: {\n        language: \"\",\n        query: \"\",\n        type: \"\",\n        unit: \"\",\n      },\n    },\n    loading: false,\n    loaded: false,\n    locationDetected: false,\n    error: \"\",\n  });\n\n  readonly weather = computed(() => {\n    const state = this.#state();\n    return {\n      ...state,\n      locationDetectedMessage: state.locationDetected\n        ? \"Location detected!\"\n        : \"Detect location\",\n      locationWiki: state.api.location.name\n        ? `https://en.wikipedia.org/wiki/${state.api.location.name}`\n        : \"\",\n    };\n  });\n\n  readonly #detectLocation$ = new Subject<void>();\n\n  constructor() {\n    this.#detectLocation$\n      .pipe(\n        switchMap(() => this.#getCurrentPosition$()),\n        switchMap((q) => this.#getCurrentWeather(q)),\n        takeUntilDestroyed(),\n      )\n      .subscribe();\n\n    effect(() => {\n      this.#changeBackground(this.#state().api.current.is_day);\n    });\n  }\n\n  #getCurrentPosition$() {\n    return new Observable<string>((observer) => {\n      if (!navigator.geolocation) {\n        this.#updateState({\n          error: \"Geolocation not supported\",\n          locationDetected: false,\n        });\n        observer.complete();\n        return;\n      }\n\n      navigator.geolocation.getCurrentPosition(\n        (position) => {\n          const q = `${position.coords.latitude},${position.coords.longitude}`;\n          this.#updateState({ locationDetected: true, loading: true });\n          observer.next(q);\n          observer.complete();\n        },\n        (error) => {\n          this.#updateState({ error: error.message, locationDetected: false });\n          observer.complete();\n        },\n        { enableHighAccuracy: true },\n      );\n    });\n  }\n\n  detectLocation() {\n    this.#detectLocation$.next();\n  }\n\n  clearErrorMessage() {\n    this.#updateState({ error: \"\", locationDetected: false });\n  }\n\n  #getCurrentWeather(q: string) {\n    const params = new HttpParams().set(\"query\", q);\n\n    this.#updateState({ loading: true });\n\n    return this.#http.get<API>(this.#currentUrl, { params }).pipe(\n      tap((api) => {\n        this.#updateState({ api, loaded: true });\n      }),\n      finalize(() => {\n        this.#updateState({ loading: false });\n      }),\n    );\n  }\n\n  #changeBackground(isDay: API[\"current\"][\"is_day\"]) {\n    if (!isDay) {\n      return;\n    }\n\n    if (isDay !== \"no\") {\n      this.#renderer.setStyle(\n        this.#body,\n        \"background-image\",\n        'url(\"assets/day.png\")',\n      );\n      return this.#renderer.setStyle(this.#body, \"color\", \"#000\");\n    }\n\n    if (isDay === \"no\") {\n      this.#renderer.setStyle(\n        this.#body,\n        \"background-image\",\n        'url(\"assets/night.png\")',\n      );\n      return this.#renderer.setStyle(this.#body, \"color\", \"#000\");\n    }\n  }\n\n  #updateState(patch: Partial<State>) {\n    this.#state.update((state) => ({ ...state, ...patch }));\n  }\n}\n"
+    }
+  },
+  "schemaVersion": "1.0",
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": null
+  },
+  "testFiles": {
+    "": {
+      "tests": [
+        {
+          "id": "0",
+          "name": "AppComponent should create the app"
+        },
+        {
+          "id": "1",
+          "name": "FooterComponent should create"
+        },
+        {
+          "id": "2",
+          "name": "apiKeyInterceptor adds access_key param to weatherstack requests"
+        },
+        {
+          "id": "3",
+          "name": "apiKeyInterceptor does NOT add access_key to unrelated URLs"
+        },
+        {
+          "id": "4",
+          "name": "MainComponent should create"
+        },
+        {
+          "id": "5",
+          "name": "MainComponent shows default detect location button text"
+        },
+        {
+          "id": "6",
+          "name": "NavbarComponent should create"
+        },
+        {
+          "id": "7",
+          "name": "WeatherService should initialize default values"
+        },
+        {
+          "id": "8",
+          "name": "WeatherService should return empty locationWiki when location name is empty"
+        },
+        {
+          "id": "9",
+          "name": "WeatherService should update error message on clearErrorMessage()"
+        },
+        {
+          "id": "10",
+          "name": "WeatherService should detect location and fetch weather data"
+        },
+        {
+          "id": "11",
+          "name": "WeatherFormComponent should create"
+        },
+        {
+          "id": "12",
+          "name": "WeatherService detect location"
+        },
+        {
+          "id": "13",
+          "name": "AppRoutingModule should initialize the router"
+        }
+      ]
+    }
+  },
+  "projectRoot": "F:\\projects\\weather-forecast-app",
+  "config": {
+    "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+    "_comment": "This config was generated using 'stryker init'. Please see the guide for more information: https://stryker-mutator.io/docs/stryker-js/guides/angular",
+    "mutate": [
+      "src/**/*.ts",
+      "!src/**/*.spec.ts",
+      "!src/test.ts",
+      "!src/environments/*.ts"
+    ],
+    "testRunner": "karma",
+    "karma": {
+      "configFile": "karma.conf.js",
+      "projectType": "angular-cli",
+      "config": {
+        "browsers": [
+          "ChromeHeadless"
+        ]
+      }
+    },
+    "reporters": [
+      "progress",
+      "clear-text",
+      "html"
+    ],
+    "ignorers": [
+      "angular"
+    ],
+    "concurrency": 14,
+    "concurrency_comment": "Recommended to use about half of your available cores when running stryker with angular",
+    "coverageAnalysis": "all",
+    "ignorePatterns": [
+      "src/main.ts"
+    ],
+    "incremental": true,
+    "allowConsoleColors": true,
+    "checkers": [],
+    "checkerNodeArgs": [],
+    "commandRunner": {
+      "command": "npm test"
+    },
+    "clearTextReporter": {
+      "allowColor": true,
+      "allowEmojis": false,
+      "logTests": true,
+      "maxTestsToLog": 3,
+      "reportTests": true,
+      "reportMutants": true,
+      "reportScoreTable": true,
+      "skipFull": false
+    },
+    "dashboard": {
+      "baseUrl": "https://dashboard.stryker-mutator.io/api/reports",
+      "reportType": "full"
+    },
+    "dryRunOnly": false,
+    "eventReporter": {
+      "baseDir": "reports/mutation/events"
+    },
+    "ignoreStatic": false,
+    "incrementalFile": "reports/stryker-incremental.json",
+    "force": false,
+    "fileLogLevel": "off",
+    "inPlace": false,
+    "logLevel": "info",
+    "maxConcurrentTestRunners": 9007199254740991,
+    "maxTestRunnerReuse": 0,
+    "mutator": {
+      "plugins": null,
+      "excludedMutations": []
+    },
+    "plugins": [
+      "@stryker-mutator/*"
+    ],
+    "appendPlugins": [],
+    "htmlReporter": {
+      "fileName": "reports/mutation/mutation.html"
+    },
+    "jsonReporter": {
+      "fileName": "reports/mutation/mutation.json"
+    },
+    "disableTypeChecks": true,
+    "symlinkNodeModules": true,
+    "tempDirName": ".stryker-tmp",
+    "cleanTempDir": true,
+    "testRunnerNodeArgs": [],
+    "thresholds": {
+      "high": 80,
+      "low": 60,
+      "break": null
+    },
+    "timeoutFactor": 1.5,
+    "timeoutMS": 5000,
+    "dryRunTimeoutMinutes": 5,
+    "tsconfigFile": "tsconfig.json",
+    "warnings": true,
+    "disableBail": false,
+    "allowEmpty": false,
+    "typescriptChecker": {
+      "prioritizePerformanceOverAccuracy": true
+    }
+  },
+  "framework": {
+    "name": "StrykerJS",
+    "version": "9.0.1",
+    "branding": {
+      "homepageUrl": "https://stryker-mutator.io",
+      "imageUrl": "data:image/svg+xml;utf8,%3Csvg viewBox='0 0 1458 1458' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2'%3E%3Cpath fill='none' d='M0 0h1458v1458H0z'/%3E%3CclipPath id='a'%3E%3Cpath d='M0 0h1458v1458H0z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M1458 729c0 402.655-326.345 729-729 729S0 1131.655 0 729C0 326.445 326.345 0 729 0s729 326.345 729 729' fill='%23e74c3c' fill-rule='nonzero'/%3E%3Cpath d='M778.349 1456.15L576.6 1254.401l233-105 85-78.668v-64.332l-257-257-44-187-50-208 251.806-82.793L1076.6 389.401l380.14 379.15c-19.681 367.728-311.914 663.049-678.391 687.599z' fill-opacity='.3'/%3E%3Cpath d='M753.4 329.503c41.79 0 74.579 7.83 97.925 25.444 23.571 18.015 41.69 43.956 55.167 77.097l11.662 28.679 165.733-58.183-14.137-32.13c-26.688-60.655-64.896-108.61-114.191-144.011-49.329-35.423-117.458-54.302-204.859-54.302-50.78 0-95.646 7.376-134.767 21.542-40.093 14.671-74.09 34.79-102.239 60.259-28.84 26.207-50.646 57.06-65.496 92.701-14.718 35.052-22.101 72.538-22.101 112.401 0 72.536 20.667 133.294 61.165 182.704 38.624 47.255 98.346 88.037 179.861 121.291 42.257 17.475 78.715 33.125 109.227 46.994 27.193 12.361 49.294 26.124 66.157 41.751 15.309 14.186 26.497 30.584 33.63 49.258 7.721 20.214 11.16 45.69 11.16 76.402 0 28.021-4.251 51.787-13.591 71.219-8.832 18.374-20.171 33.178-34.523 44.219-14.787 11.374-31.193 19.591-49.393 24.466-19.68 5.359-39.14 7.993-58.69 7.993-29.359 0-54.387-3.407-75.182-10.747-20.112-7.013-37.144-16.144-51.259-27.486-13.618-11.009-24.971-23.766-33.744-38.279-9.64-15.8-17.272-31.924-23.032-48.408l-10.965-31.376-161.669 60.585 10.734 30.124c10.191 28.601 24.197 56.228 42.059 82.748 18.208 27.144 41.322 51.369 69.525 72.745 27.695 21.075 60.904 38.218 99.481 51.041 37.777 12.664 82.004 19.159 132.552 19.159 49.998 0 95.818-8.321 137.611-24.622 42.228-16.471 78.436-38.992 108.835-67.291 30.719-28.597 54.631-62.103 71.834-100.642 17.263-38.56 25.923-79.392 25.923-122.248 0-54.339-8.368-100.37-24.208-138.32-16.29-38.759-38.252-71.661-65.948-98.797-26.965-26.418-58.269-48.835-93.858-67.175-33.655-17.241-69.196-33.11-106.593-47.533-35.934-13.429-65.822-26.601-89.948-39.525-22.153-11.868-40.009-24.21-53.547-37.309-11.429-11.13-19.83-23.678-24.718-37.664-5.413-15.49-7.98-33.423-7.98-53.577 0-40.883 11.293-71.522 37.086-90.539 28.443-20.825 64.985-30.658 109.311-30.658z' fill='%23f1c40f' fill-rule='nonzero'/%3E%3Cpath d='M720 0h18v113h-18zM1458 738v-18h-113v18h113zM720 1345h18v113h-18zM113 738v-18H0v18h113z'/%3E%3C/g%3E%3C/svg%3E"
+    },
+    "dependencies": {
+      "@stryker-mutator/karma-runner": "9.0.1",
+      "@stryker-mutator/typescript-checker": "9.0.1",
+      "karma": "6.4.4",
+      "karma-chrome-launcher": "3.2.0",
+      "karma-jasmine": "5.1.0",
+      "jasmine": "2.8.0",
+      "jasmine-core": "5.8.0",
+      "typescript": "5.8.3",
+      "@angular/cli": "20.0.1",
+      "webpack": "5.99.9"
+    }
+  }
+}

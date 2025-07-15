@@ -1,10 +1,7 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import { provideHttpClientTesting } from "@angular/common/http/testing";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { provideHttpClient } from "@angular/common/http";
-import { provideZonelessChangeDetection } from "@angular/core";
 import { By } from "@angular/platform-browser";
 import { WeatherService } from "../services/weather.service";
 import { MainComponent } from "./main.component";
@@ -18,7 +15,6 @@ describe("MainComponent", () => {
     TestBed.configureTestingModule({
       imports: [MainComponent, WeatherFormComponent],
       providers: [
-        provideZonelessChangeDetection(),
         provideHttpClient(),
         provideHttpClientTesting(),
         WeatherService,
@@ -28,8 +24,8 @@ describe("MainComponent", () => {
 
   beforeEach(async () => {
     fixture = TestBed.createComponent(MainComponent);
+    fixture.autoDetectChanges();
 
-    await fixture.whenStable();
     component = fixture.componentInstance;
   });
 

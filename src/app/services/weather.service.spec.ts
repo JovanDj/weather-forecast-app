@@ -1,5 +1,3 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-
 import { provideHttpClient } from "@angular/common/http";
 import {
   HttpTestingController,
@@ -7,39 +5,92 @@ import {
 } from "@angular/common/http/testing";
 import { TestBed } from "@angular/core/testing";
 
-import { provideZonelessChangeDetection } from "@angular/core";
-import { WeatherService } from "./weather.service";
+import "zone.js/testing";
+import { API } from "../models/current.model";
+import { State, WeatherService } from "./weather.service";
 
-describe("WeatherService", { concurrent: true }, () => {
+describe("WeatherService", () => {
+  let service: WeatherService;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting(),
-        provideZonelessChangeDetection(),
-      ],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     });
 
-    Object.defineProperty(global.navigator, "geolocation", {
-      value: {
-        getCurrentPosition: vi.fn(),
-        watchPosition: vi.fn(),
-        clearWatch: vi.fn(),
+    service = TestBed.inject(WeatherService);
+  });
+
+  it("should initialize default values", () => {
+    const initialState: State = {
+      api: {
+        current: {
+          cloudcover: 0,
+          feelslike: 0,
+          humidity: 0,
+          is_day: "",
+          observation_time: "",
+          precip: 0,
+          pressure: 0,
+          temperature: 0,
+          uv_index: 0,
+          visibility: 0,
+          weather_code: 0,
+          weather_descriptions: [],
+          weather_icons: [],
+          wind_degree: 0,
+          wind_dir: "",
+          wind_speed: 0,
+        },
+        location: {
+          country: "",
+          lat: "",
+          localtime: "",
+          localtime_epoch: 0,
+          lon: "",
+          name: "",
+          region: "",
+          timezone_id: "",
+          utc_offset: "",
+        },
+        request: {
+          language: "",
+          query: "",
+          type: "",
+          unit: "",
+        },
       },
-      configurable: true,
+      loading: false,
+      loaded: false,
+      locationDetected: false,
+      error: "",
+    };
+
+    expect(service.weather()).toEqual({
+      ...initialState,
+      locationDetectedMessage: "Detect location",
+      locationWiki: "",
     });
   });
 
+  it("should return empty locationWiki when location name is empty", () => {
+    service.weather().api.location.name = "";
+    expect(service.weather().locationWiki).toEqual("");
+  });
+
   it("should update error message on clearErrorMessage()", async () => {
-    const service = TestBed.inject(WeatherService);
+    const spy = spyOn(navigator.geolocation, "getCurrentPosition").and.callFake(
+      (_: PositionCallback, error?: PositionErrorCallback) => {
+        const positionError: GeolocationPositionError = {
+          message: "Permission denied",
+          code: 0,
+          PERMISSION_DENIED: 1,
+          POSITION_UNAVAILABLE: 2,
+          TIMEOUT: 3,
+        };
 
-    vi.spyOn(navigator.geolocation, "getCurrentPosition").mockImplementation(
-      (_, error) => {
-        if (!error) {
-          return;
+        if (error) {
+          error(positionError);
         }
-
-        error({ message: "Permission denied" } as GeolocationPositionError);
       },
     );
 
@@ -48,10 +99,11 @@ describe("WeatherService", { concurrent: true }, () => {
 
     service.clearErrorMessage();
     expect(service.weather().error).toBe("");
+
+    spy.calls.reset();
   });
 
-  it("should detect location and fetch weather data", async () => {
-    const service = TestBed.inject(WeatherService);
+  it("should detect location and fetch weather data", () => {
     const http = TestBed.inject(HttpTestingController);
 
     const coords: Pick<GeolocationCoordinates, "latitude" | "longitude"> = {
@@ -74,13 +126,14 @@ describe("WeatherService", { concurrent: true }, () => {
       toJSON: () => {},
     };
 
-    const geoSpy = vi
-      .spyOn(navigator.geolocation, "getCurrentPosition")
-      .mockImplementation((success) => {
-        success(mockPosition);
-      });
+    const geoSpy = spyOn(
+      navigator.geolocation,
+      "getCurrentPosition",
+    ).and.callFake((success) => {
+      success(mockPosition);
+    });
 
-    const fakeResponse = {
+    const fakeResponse: API = {
       current: {
         cloudcover: 50,
         feelslike: 20,
@@ -129,16 +182,19 @@ describe("WeatherService", { concurrent: true }, () => {
 
     req.flush(fakeResponse);
 
-    expect(service.weather().api.location.country).toBe("Serbia");
-    expect(service.weather().locationDetected).toBe(true);
-    expect(service.weather().loaded).toBe(true);
-    expect(service.weather().locationWiki).toBe(
+    const updatedWeather = service.weather();
+
+    expect(updatedWeather.api.location.country).toBe("Serbia");
+    expect(updatedWeather.locationDetected).toBe(true);
+    expect(updatedWeather.loaded).toBe(true);
+    expect(updatedWeather.locationWiki).toBe(
       "https://en.wikipedia.org/wiki/Belgrade",
     );
-    expect(service.weather().locationDetectedMessage).toBe(
+    expect(updatedWeather.locationDetectedMessage).toEqual(
       "Location detected!",
     );
+    expect(updatedWeather.loading).toBeFalse();
 
-    geoSpy.mockRestore();
+    geoSpy.calls.reset();
   });
 });

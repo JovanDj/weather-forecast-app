@@ -1,5 +1,3 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import {
   HttpClient,
   HttpParams,
@@ -12,7 +10,6 @@ import {
 } from "@angular/common/http/testing";
 import { TestBed } from "@angular/core/testing";
 
-import { provideZonelessChangeDetection } from "@angular/core";
 import { apiKeyInterceptor } from "./api-key.interceptor";
 
 describe("apiKeyInterceptor", () => {
@@ -24,7 +21,6 @@ describe("apiKeyInterceptor", () => {
       providers: [
         provideHttpClient(withInterceptors([apiKeyInterceptor])),
         provideHttpClientTesting(),
-        provideZonelessChangeDetection(),
       ],
     });
 

@@ -1,8 +1,5 @@
-import { beforeEach, describe, expect, it } from "vitest";
-
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { provideZonelessChangeDetection } from "@angular/core";
 import { NavbarComponent } from "./navbar.component";
 
 describe("NavbarComponent", () => {
@@ -12,12 +9,13 @@ describe("NavbarComponent", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [NavbarComponent],
-      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
   });
 
   beforeEach(async () => {
     fixture = TestBed.createComponent(NavbarComponent);
+    fixture.autoDetectChanges();
+
     component = fixture.componentInstance;
   });
 
