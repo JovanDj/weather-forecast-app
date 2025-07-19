@@ -15,7 +15,7 @@ describe("WeatherFormComponent", () => {
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(WeatherFormComponent);
     fixture.autoDetectChanges();
 

@@ -1,5 +1,5 @@
-
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+
 import { MatCardModule } from "@angular/material/card";
 import { MatRippleModule } from "@angular/material/core";
 import { MatListModule } from "@angular/material/list";
@@ -8,26 +8,27 @@ import { WeatherService } from "../services/weather.service";
 import { WeatherFormComponent } from "./weather-form/weather-form.component";
 
 @Component({
-    selector: "app-main",
-    templateUrl: "./main.component.html",
-    styleUrls: ["./main.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
+  selector: "app-main",
+  templateUrl: "./main.component.html",
+  styleUrls: ["./main.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
     WeatherFormComponent,
     MatCardModule,
     MatRippleModule,
-    MatListModule
-]
+    MatListModule,
+  ],
 })
 export class MainComponent {
   readonly #weatherService = inject(WeatherService);
-  readonly vm = this.#weatherService.weather;
 
-  onLocationButtonClick() {
+  protected readonly vm = this.#weatherService.weather;
+
+  protected onLocationButtonClick() {
     this.#weatherService.detectLocation();
   }
 
-  onErrorMessageClick() {
+  protected onErrorMessageClick() {
     this.#weatherService.clearErrorMessage();
   }
 }

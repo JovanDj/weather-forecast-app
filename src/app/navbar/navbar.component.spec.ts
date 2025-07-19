@@ -12,7 +12,7 @@ describe("NavbarComponent", () => {
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(NavbarComponent);
     fixture.autoDetectChanges();
 

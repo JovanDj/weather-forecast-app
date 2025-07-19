@@ -150,7 +150,6 @@ export class WeatherService {
 
     return this.#http.get<API>(this.#currentUrl, { params }).pipe(
       tap((api) => {
-        console.log(api.current.is_day);
         this.#updateState({ api, loaded: true });
       }),
       finalize(() => {
@@ -164,13 +163,15 @@ export class WeatherService {
       return;
     }
 
-    if (isDay !== "no") {
+    if (isDay === "yes") {
       this.#renderer.setStyle(
         this.#body,
         "background-image",
         'url("assets/day.png")',
       );
-      return this.#renderer.setStyle(this.#body, "color", "#000");
+
+      this.#renderer.setStyle(this.#body, "color", "#000");
+      return;
     }
 
     if (isDay === "no") {
@@ -179,7 +180,9 @@ export class WeatherService {
         "background-image",
         'url("assets/night.png")',
       );
-      return this.#renderer.setStyle(this.#body, "color", "#000");
+
+      this.#renderer.setStyle(this.#body, "color", "#000");
+      return;
     }
   }
 

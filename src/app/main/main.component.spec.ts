@@ -1,14 +1,13 @@
+import { provideHttpClient } from "@angular/common/http";
 import { provideHttpClientTesting } from "@angular/common/http/testing";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { provideHttpClient } from "@angular/common/http";
 import { By } from "@angular/platform-browser";
+
 import { WeatherService } from "../services/weather.service";
 import { MainComponent } from "./main.component";
 import { WeatherFormComponent } from "./weather-form/weather-form.component";
 
 describe("MainComponent", () => {
-  let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
 
   beforeEach(() => {
@@ -22,15 +21,9 @@ describe("MainComponent", () => {
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(MainComponent);
     fixture.autoDetectChanges();
-
-    component = fixture.componentInstance;
-  });
-
-  it("should create", () => {
-    expect(component).toBeTruthy();
   });
 
   it("shows default detect location button text", () => {

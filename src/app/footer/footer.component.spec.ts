@@ -12,7 +12,7 @@ describe("FooterComponent", () => {
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(FooterComponent);
     fixture.autoDetectChanges();
 

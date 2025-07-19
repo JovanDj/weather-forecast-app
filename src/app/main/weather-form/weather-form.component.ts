@@ -21,14 +21,14 @@ export class WeatherFormComponent {
   loading = input(false, { transform: booleanAttribute });
   locationDetectedMessage = input("");
 
-  locationButtonClick = output();
-  errorMessageClick = output();
+  protected locationButtonClick = output();
+  protected errorMessageClick = output();
 
-  onLocationButtonClick() {
+  protected onLocationButtonClick() {
     this.locationButtonClick.emit();
   }
 
-  onErrorMessageClick() {
+  protected onErrorMessageClick() {
     this.errorMessageClick.emit();
   }
 }

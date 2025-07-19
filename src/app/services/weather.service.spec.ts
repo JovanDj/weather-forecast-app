@@ -77,9 +77,13 @@ describe("WeatherService", () => {
     expect(service.weather().locationWiki).toEqual("");
   });
 
-  it("should update error message on clearErrorMessage()", async () => {
+  it("should update error message on clearErrorMessage()", () => {
     const spy = spyOn(navigator.geolocation, "getCurrentPosition").and.callFake(
       (_: PositionCallback, error?: PositionErrorCallback) => {
+        if (!error) {
+          return;
+        }
+
         const positionError: GeolocationPositionError = {
           message: "Permission denied",
           code: 0,
@@ -88,9 +92,7 @@ describe("WeatherService", () => {
           TIMEOUT: 3,
         };
 
-        if (error) {
-          error(positionError);
-        }
+        error(positionError);
       },
     );
 
